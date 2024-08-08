@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美化下載連結範例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+        }
+        a.download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        a.download-link:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        a.download-link:active {
+            background-color: #004085;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>下載文件</h1>
+        <a href="path/to/your/file.txt" download="example.txt" class="download-link">下載文本文件</a>
+    </div>
+</body>
+</html>

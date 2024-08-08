@@ -1,0 +1,333 @@
+/* CSS变量 */
+:root {
+    --primary-color: #333; /* 主色：深灰 */
+    --secondary-color: #444; /* 次色：中灰 */
+    --accent-color: #00BFFF; /* 强调色：天蓝色 */
+    --background-color: #1e1e1e; /* 背景色：深色 */
+    --text-color: #e0e0e0; /* 文字色：淡灰色 */
+    --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    --gradient-start: #333; /* 渐变起始色 */
+    --gradient-end: #555; /* 渐变结束色 */
+    --hover-color: #1e90ff; /* 悬停色 */
+    --active-color: #1c86ee; /* 点击色 */
+}
+
+/* 基本样式 */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* 防止水平滚动 */
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 头部样式 */
+header {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--text-color);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 4px solid var(--accent-color);
+}
+
+header:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* 导航菜单样式 */
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+    background-color: rgba(0, 191, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* 主体样式 */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+    background: linear-gradient(135deg, #2e2e2e, #1c1c1c);
+    box-shadow: var(--box-shadow);
+    border-radius: 12px;
+    animation: fadeIn 1.5s ease;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shakeX {
+    from, to {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+
+/* 页脚样式 */
+footer {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    border-top: 4px solid var(--accent-color);
+}
+
+/* 英雄区域 */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(50, 50, 50, 0.8) 100%);
+    color: var(--text-color);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    animation: slideInLeft 1s ease;
+}
+
+/* 特色和项目区域 */
+.features, .portfolio, .about, .contact {
+    margin: 40px 0;
+    animation: fadeInUp 1.2s ease;
+}
+
+.feature, .portfolio-item {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #3a3a3a;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.feature:hover, .portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    background-color: #4a4a4a;
+}
+
+/* 表单样式 */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #2e2e2e;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    animation: zoomIn 0.8s ease;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    padding: 14px;
+    margin-top: 8px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #333;
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+    outline: none;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 14px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+form button:active {
+    background-color: var(--active-color);
+    transform: scale(0.98);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* 链接样式 */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+a:hover::before {
+    width: 100%;
+}
+
+/* 下载链接 */
+a.download-link {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.download-link:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+a.download-link:active {
+    background-color: var(--active-color);
+    transform: scale(0.98);
+}

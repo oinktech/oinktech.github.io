@@ -1,0 +1,35 @@
+# 全站允許所有搜索引擎爬蟲訪問
+User-agent: *
+Disallow:
+
+# 指定網站地圖的位置
+Sitemap: https://oinktech.github.io/sitemap.xml
+
+# 禁止所有搜索引擎爬蟲訪問特定目錄或文件
+# 以下是一些常見的例子
+
+# 禁止訪問管理目錄（如果有）
+Disallow: /admin/
+
+# 禁止訪問某些開發相關的目錄
+Disallow: /dev/
+Disallow: /test/
+
+# 禁止訪問特定文件
+Disallow: /secret-file.html
+Disallow: /private-data.txt
+
+# 允許 Googlebot 爬蟲訪問整個網站，即使某些部分對其他爬蟲不允許
+User-agent: Googlebot
+Disallow:
+
+# 禁止 Bingbot 訪問整個網站
+User-agent: Bingbot
+Disallow: /
+
+# 禁止所有爬蟲訪問查詢參數 URL（假設你希望避免爬蟲爬取 URL 中帶有 ?id= 參數的頁面）
+Disallow: /*?id=
+
+# 只允許爬蟲訪問特定類型的文件，例如僅允許訪問 HTML 文件
+Disallow: /*
+Allow: /*.html$

@@ -1,7 +1,0 @@
-# Allow all other bots to crawl the entire site
-User-agent: *
-Disallow:
-
-# Block bingbot from crawling the site
-User-agent: bingbot
-Disallow: /

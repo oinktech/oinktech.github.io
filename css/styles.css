@@ -114,6 +114,7 @@ main {
     font-family: 'Arial', sans-serif; /* 字體 */
     display: flex;             /* 讓內部內容水平對齊 */
     align-items: center;       /* 垂直置中 */
+    text-align: center; 
 }
 
 .latest-new {

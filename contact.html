@@ -3,49 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>聯繫我們 - Oinktech</title>
+    <title data-key="title contact">聯繫我們 - Oinktech</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    
+    <script src="./js/language.js"></script>
     <script src="./js/scripts.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Oinktech</h1>
+        <h1><a href="./index.html">Oinktech</a></h1>
         <nav>
             <ul>
-                <li><a href="home.html"><box-icon name='home'></box-icon>首頁</a></li>
-                <li><a href="portfolio.html"><box-icon name='file'></box-icon>作品集</a></li>
-                <li><a href="about.html"><box-icon type='solid' name='user-detail'></box-icon>關於我們</a></li>
-                <li><a href="contact.html"><box-icon name='envelope'></box-icon>聯繫我們</a></li>
-                <li><a href="comment.html"><box-icon name='message-rounded-dots'></box-icon>評論我們</a></li>
+                <li><a href="portfolio.html"><box-icon name='file'></box-icon><span data-key="workDisplay">作品展示</span></a></li>
+                <li><a href="about.html"><box-icon type='solid' name='user-detail'></box-icon><span data-key="aboutUs">關於我們</span></a></li>
+                <li><a href="contact.html"><box-icon name='envelope'></box-icon><span data-key="contactUs">聯繫我們</span></a></li>
+                <li><a href="comment.html"><box-icon name='message-rounded-dots'></box-icon><span data-key="commentUs">評論我們</span></a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="contact">
-            <h2>聯繫我們</h2>
+            <h2 data-key="contact">聯繫我們</h2>
             <form id="contact-form">
-                <label for="name">姓名：</label>
+                <label for="name" data-key="nameLabel">姓名：</label>
                 <input type="text" id="name" name="user_name" required>
                 
-                <label for="email">郵箱：</label>
+                <label for="email" data-key="messageLabel">郵箱：</label>
                 <input type="email" id="email" name="user_email" required>
                 
-                <label for="message">訊息：</label>
+                <label for="message" data-key="messageLabel">訊息：</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
                 
-                <button type="submit">發送訊息</button>
+                <button type="submit" data-key="submitButton">發送訊息</button>
             </form>
             <div id="response-message" style="display: none;"></div>
         </section>
+        <div class="language-selector">
+            <label for="language-selector" data-key="selectLanguage">Select language:</label>
+            <select id="language-selector" onchange="changeLanguage()">
+                <option value="zh-Hant">繁體中文</option>
+                <option value="en">English</option>
+                <option value="jp">日本語</option>
+                <option value="korean">한국어</option>
+                <option value="spanish">español</option>
+                <!-- 添加其他语言选项 -->
+            </select>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Oinktech 版權所有。</p>
+        <p data-key="footerText">&copy; 2024 All rights reserved by Oinktech.</p>
     </footer>
     <script type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
@@ -63,6 +73,7 @@
           })();
     </script>
 <!--End of Tawk.to Script-->
+<script src="./js/scripts.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 </html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="title firebase-login-system" >作品集 - Oinktech</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <h1><a href="./index.html">Oinktech</a></h1>
+        <nav>
+            <ul>
+                <li><a href="portfolio.html"><box-icon name='file'></box-icon><span data-key="workDisplay">作品展示</span></a></li>
+                <li><a href="about.html"><box-icon type='solid' name='user-detail'></box-icon><span data-key="aboutUs">關於我們</span></a></li>
+                <li><a href="contact.html"><box-icon name='envelope'></box-icon><span data-key="contactUs">聯繫我們</span></a></li>
+                <li><a href="comment.html"><box-icon name='message-rounded-dots'></box-icon><span data-key="commentUs">評論我們</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="portfolio">
+            <div class="portfolio-item animate__animated animate__zoomIn">
+                <h2 data-key="title Firebase-login-system">Firebase Login System</h2>
+    <p><a data-key="visitLink" href="https://oinktech.github.io/firebase-login-system/">Visit Firebase Login System</a></p>
+    
+    <h3 data-key="header-1">Overview</h3>
+    <p data-key="text1">
+        The Firebase Login System is a demonstration of implementing user authentication using Firebase. Firebase, a comprehensive 
+        backend-as-a-service (BaaS) provided by Google, is widely used for developing mobile and web applications. This example 
+        showcases how Firebase can facilitate secure user authentication, supporting various sign-in methods including Google, 
+        GitHub, and email/password.
+    </p>
+    
+    <h3 data-key="header-2">Key Features</h3>
+    <ul>
+        <li data-key="text2"><strong>Multiple Sign-In Options</strong>: Offers various sign-in options such as Google, GitHub, and traditional email/password authentication, all integrated using Firebase Authentication services.</li>
+        <li data-key="text3"><strong>User Management</strong>: Displays user information (email and UID) after login and provides functionalities for password changes and logout.</li>
+        <li data-key="text4"><strong>Security</strong>: Utilizes Firebase Authentication to handle user credentials securely, ensuring data protection and preventing unauthorized access.</li>
+    </ul>
+    
+    <h3 data-key="header-3">Technical Details</h3>
+    <ul>
+        <li data-key="text5"><strong>Frontend Technologies</strong>: Built using HTML, CSS, and JavaScript, offering a clean and user-friendly interface.</li>
+        <li data-key="text6"><strong>Backend Technologies</strong>: Uses Firebase’s authentication services to manage user accounts and authentication processes.</li>
+    </ul>
+    
+    <h3 data-key="header-4">Usage Flow</h3>
+    <ol>
+        <li data-key="text7">Create a Firebase project.</li>
+        <li data-key="text8">Enable Google and Email login in Firebase Authentication.</li>
+        <li data-key="text9">Enter the relevant configuration of firebase.</li>
+        <li data-key="text10">Generate and download links.</li>
+        <li data-key="text11">Ready to use after deployment.</li>
+    </ol>
+            </div>
+            
+            
+            
+        </section>
+        <div class="language-selector">
+            <label for="language-selector" data-key="selectLanguage">Select language:</label>
+            <select id="language-selector" onchange="changeLanguage()">
+                <option value="zh-Hant">繁體中文</option>
+                <option value="en">English</option>
+                <option value="jp">日本語</option>
+                <option value="korean">한국어</option>
+                <option value="spanish">español</option>
+                <!-- 添加其他语言选项 -->
+            </select>
+        </div>
+    </main>
+
+    <footer>
+        <p data-key="footerText">&copy; 2024 All rights reserved by Oinktech.</p>
+    </footer>
+
+    <script src="./js/language.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+</html>

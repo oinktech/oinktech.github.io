@@ -375,3 +375,58 @@ a.download-link:active {
     background-color: var(--active-color);
     transform: scale(0.98);
 }
+/* 语言选择器容器样式 */
+.language-selector {
+    margin: 20px 0;
+    text-align: center; /* 居中对齐 */
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    width: fit-content;
+    margin: 0 auto; /* 水平居中 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 标签样式 */
+.language-selector label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* 下拉列表样式 */
+.language-selector select {
+    padding: 10px 14px;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    appearance: none; /* 隐藏默认的下拉箭头，适用于部分浏览器 */
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* 自定义下拉箭头 */
+.language-selector select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* 悬停和活动状态 */
+.language-selector select:hover {
+    background-color: #3a3a3a;
+}
+
+.language-selector select:active {
+    background-color: var(--hover-color);
+}
+
+/* 选择器容器的悬停效果 */
+.language-selector:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

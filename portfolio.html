@@ -3,74 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作品集 - Oinktech</title>
+    <title data-key="title portfolio">Work display - Oinktech</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Oinktech</h1>
+        <h1><a href="./index.html">Oinktech</a></h1>
         <nav>
             <ul>
-                <li><a href="home.html"><box-icon name='home'></box-icon>首頁</a></li>
-                <li><a href="portfolio.html"><box-icon name='file'></box-icon>作品集</a></li>
-                <li><a href="about.html"><box-icon type='solid' name='user-detail'></box-icon>關於我們</a></li>
-                <li><a href="contact.html"><box-icon name='envelope'></box-icon>聯繫我們</a></li>
-                <li><a href="comment.html"><box-icon name='message-rounded-dots'></box-icon>評論我們</a></li>
+                <li><a href="portfolio.html"><box-icon name='file'></box-icon><span data-key="workDisplay">作品展示</span></a></li>
+                <li><a href="about.html"><box-icon type='solid' name='user-detail'></box-icon><span data-key="aboutUs">關於我們</span></a></li>
+                <li><a href="contact.html"><box-icon name='envelope'></box-icon><span data-key="contactUs">聯繫我們</span></a></li>
+                <li><a href="comment.html"><box-icon name='message-rounded-dots'></box-icon><span data-key="commentUs">評論我們</span></a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="portfolio">
-            <h2>作品集</h2>
+            <h2 data-key="title portfolio2">Work display</h2>
             
+            <a href="./CodeArchitectStudio.html">
+                <div class="portfolio-item animate__animated animate__zoomIn">
+                    <h3 data-key="title1">CodeArchitect Studio </h3>
+                    <img src="./images/title.png" style="height: 150px;width: auto;">
+                </div>
+            </a>
+
+            <a href="./Firebase-login-system.html">
+                <div class="portfolio-item animate__animated animate__zoomIn">
+                    <h3 data-key="title2">Automatically create Firebase login system</h3>
+                    <img src="./images/firebase-title.png" style="height: 150px;width: auto;">
+                </div>
+            </a>
+            
+            <a href="./oinktech-cloud.html">
+                <div class="portfolio-item animate__animated animate__zoomIn">
+                    <h3 data-key="title3">Oinktech-Cloud cloud service</h3>
+                    <img src="./images/cloud.png" style="height: 150px;width: auto;">
+                </div>
+            </a>
+
             <div class="portfolio-item animate__animated animate__zoomIn">
-                <h3>CodeArchitect Studio </h3>
-                <a href="https://oinktech.github.io/CodeArchitectStudio/">https://oinktech.github.io/CodeArchitectStudio/</a></p>
+                <h3 data-key="title4">Automatically deploy local html</h3>
+                <a href="./portfolio/html.exe" download="html.exe" class="download-link" data-key="link4">Download local html automatic deployment file.</a>
+                <p data-key="description1">Instructions for use: First manually add the environment variables, enter html in the terminal, and a local link will be generated.</p>
             </div>
             <div class="portfolio-item animate__animated animate__zoomIn">
-                <h3>自動創建Firebase登入系統</h3>
-                <a href="https://oinktech.github.io/firebase-login-system/">https://oinktech.github.io/firebase-login-system/</a></p>
+                <h3 data-key="title5">Clone the Github repository locally</h3>
+                <a href="./portfolio/clone.zip" download="clone.zip" class="download-link" data-key="link5">Clone the Github repository locally</a>
+                <p data-key="description2">Instructions for use: First manually add the environment variables, enter github_clone or clone in the terminal, and follow the prompts.</p>
             </div>
             <div class="portfolio-item animate__animated animate__zoomIn">
-                <h3>Oinktech-Cloud 雲端服務</h3>
-                <a href="https://oinktech.github.io/Oinktech-cloud">https://oinktech.github.io/Oinktech-cloud</a></p>
+                <h3 data-key="title6">Github push tool</h3>
+                <a href="./portfolio/github_push.zip" download="github_push.zip" class="download-link"data-key="link6">Download the Github push tool</a>
+                <p data-key="description3">Instructions for use: First manually add environment variables, enter push or github_push in the terminal to generate a local link.</p>
             </div>
             <div class="portfolio-item animate__animated animate__zoomIn">
-                <h3>自動部屬本地html</h3>
-                <a href="./profile/html.exe" download="html.exe" class="download-link">下載自動部屬本地html</a>
-                <p>使用方法:先手動加入至環境變數,在終端機輸入html,即會產生本地連結</p>
+                <h3 data-key="title7">File encryption tool</h3>
+                <a href="./portfolio/File encryption tool.zip" download="File encryption tool.zip" data-key="link7"class="download-link">File encryption tool</a>
             </div>
             <div class="portfolio-item animate__animated animate__zoomIn">
-                <h3>克隆Github資料夾</h3>
-                <a href="./profile/clone.zip" download="clone.zip" class="download-link">下載克隆Github資料夾</a>
-                <p>使用方法:先手動加入至環境變數,在終端機輸入 github_clone或是clone,並依照指示輸入即可</p>
-            </div>
-            <div class="portfolio-item animate__animated animate__zoomIn">
-                <h3>Github push</h3>
-                <a href="./profile/github_push.zip" download="github_push.zip" class="download-link">下載github_push</a>
-            </div>
-            <div class="portfolio-item animate__animated animate__zoomIn">
-                <h3>文件加密工具</h3>
-                <a href="./profile/文件加密工具(exe版).zip" download="文件加密工具(exe版).zip" class="download-link">下載文件加密工具(exe版)</a>
-                <p>若無法下載,請點選<a href="https://www.dropbox.com/scl/fi/w3v6xiwx62vph0xcnno6b/exe.zip?rlkey=p3upazh6cn5f3qlq1hxm6i21a&st=57gtfmug&dl=0">這裡</a>。</p>
-            </div>
-            <div class="portfolio-item animate__animated animate__zoomIn">
-                <h3>顯示資料夾目錄</h3>
-                <a href="./profile/show_folder.exe" download="show_folder.exe" class="download-link">下載顯示資料夾目錄</a>
-                <p>使用方法:先手動加入至環境變數,在終端機輸入 show_folder,並依照指示輸入即可</p>
+                <h3 data-key="title8">Show folder directory</h3>
+                <a href="./portfolio/show_folder.exe" download="show_folder.exe" data-key="link8" class="download-link">Download display folder directory</a>
+                <p data-key="description4">Instructions for use: Manually add it to the environment variables, enter show_folder in the terminal, and follow the instructions.</p>
             </div>
             
             
         </section>
+        <div class="language-selector">
+            <label for="language-selector" data-key="selectLanguage">Select language:</label>
+            <select id="language-selector" onchange="changeLanguage()">
+                <option value="zh-Hant">繁體中文</option>
+                <option value="en">English</option>
+                <option value="jp">日本語</option>
+                <option value="korean">한국어</option>
+                <option value="spanish">español</option>
+                <!-- 添加其他语言选项 -->
+            </select>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Oinktech 版權所有。</p>
+        <p>&copy; 2024 All rights reserved by Oinktech.</p>
     </footer>
-
+    <script src="./js/language.js"></script>
+    <script src="./js/scripts.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 </html>

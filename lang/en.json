@@ -129,5 +129,53 @@
   "link8": "Download Display Folder Directory Tool",
   "description4": "Instructions: Manually add to environment variables, enter 'show_folder' in the terminal, and follow the prompts."
 
+    "privacyPolicy": {
+        "title": "Privacy Policy",
+        "intro": "Welcome to Oinktech. We are committed to protecting and respecting your privacy. This privacy policy explains how we collect, use, and protect your personal information.",
+        "section1": {
+            "title": "1. Information We Collect",
+            "content": "We may collect the following types of information:",
+            "items": [
+                "Personal Information: Including your name, email address, and contact information.",
+                "Usage Data: Including the time, date, browser type, and pages you visit on our site.",
+                "Cookies: We use cookies to improve your browsing experience. Cookies are small text files stored on your device."
+            ]
+        },
+        "section2": {
+            "title": "2. How We Use Your Information",
+            "content": "We use your information to:",
+            "items": [
+                "Provide and improve our services.",
+                "Process your requests and inquiries.",
+                "Send you notifications and updates about our products and services."
+            ]
+        },
+        "section3": {
+            "title": "3. How We Protect Your Information",
+            "content": "We take appropriate technical and organizational measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. We regularly review and update our security measures."
+        },
+        "section4": {
+            "title": "4. How We Share Your Information",
+            "content": "We do not sell or rent your personal information to third parties. We may share your information in the following situations:",
+            "items": [
+                "When required by law, or to comply with legal processes.",
+                "With our service providers or partners to help us provide our services."
+            ]
+        },
+        "section5": {
+            "title": "5. Your Rights",
+            "content": "You have the right to request access to, correction, or deletion of your personal information. If you wish to exercise these rights, please contact us."
+        },
+        "section6": {
+            "title": "6. Changes to Privacy Policy",
+            "content": "We may update this privacy policy from time to time. Any changes will be posted on this page, and you will be notified via email before the changes take effect."
+        },
+        "section7": {
+            "title": "7. Contact Us",
+            "content": "If you have any questions or concerns about this privacy policy, please contact us at:",
+            "contactEmail": "Email: oinktech2024@gmail.com"
+        }
+    }
+
 }
     

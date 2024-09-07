@@ -1,69 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隱私政策 - Oinktech</title>
-    <link href="css/styles.css" rel="stylesheet">
-    
-        
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>隱私政策</h1>
-        <p>歡迎來到 Oinktech。我們致力於保護和尊重您的隱私。本隱私政策說明了我們如何收集、使用和保護您的個人信息。</p>
+    <header>
+        <h1 id="page-title">Privacy Policy</h1>
+        <select id="language-selector">
+            <option value="en">English</option>
+            <option value="zh-Hant">繁體中文</option>
+            <option value="jp">日本語</option>
+            <option value="korean">한국어</option>
+            <option value="spanish">Español</option>
+        </select>
+    </header>
+
+    <main>
+        <section id="intro">
+            <p id="intro-text">Welcome to Oinktech. We are committed to protecting and respecting your privacy. This privacy policy explains how we collect, use, and protect your personal information.</p>
+        </section>
         
-        <h2>1. 我們收集的信息</h2>
-        <p>我們可能會收集以下類型的信息：</p>
-        <ul>
-            <li><strong>個人信息：</strong>包括您的姓名、電子郵件地址和聯絡信息。</li>
-            <li><strong>使用數據：</strong>包括您訪問我們網站的時間、日期、瀏覽器類型和訪問的頁面。</li>
-            <li><strong>Cookies：</strong>我們使用 cookies 來改善您的瀏覽體驗。Cookies 是存儲在您設備上的小型文本文件。</li>
-        </ul>
+        <section id="sections">
+            <!-- Sections will be injected by JavaScript -->
+        </section>
 
-        <h2>2. 我們如何使用您的信息</h2>
-        <p>我們使用您的信息來：</p>
-        <ul>
-            <li>提供和改進我們的服務。</li>
-            <li>處理您的請求和查詢。</li>
-            <li>向您發送有關我們產品和服務的通知和更新。</li>
-        </ul>
-
-        <h2>3. 如何保護您的信息</h2>
-        <p>我們採取適當的技術和組織措施來保護您的個人信息免於未經授權的訪問、洩露、修改或毀壞。我們會定期檢討和更新我們的安全措施。</p>
-
-        <h2>4. 我們如何分享您的信息</h2>
-        <p>我們不會將您的個人信息出售或出租給第三方。以下情況下我們可能會分享您的信息：</p>
-        <ul>
-            <li>在法律要求下，或為遵守法律程序。</li>
-            <li>與我們的服務提供商或合作夥伴分享，以協助我們提供服務。</li>
-        </ul>
-
-        <h2>5. 您的權利</h2>
-        <p>您有權要求我們訪問、更正或刪除您的個人信息。如果您希望行使這些權利，請聯絡我們。</p>
-
-        <h2>6. 隱私政策的變更</h2>
-        <p>我們可能會不時更新本隱私政策。任何更改將會在本頁面上公佈，並在更改生效前通過電子郵件通知您。</p>
-
-        <h2>7. 聯絡我們</h2>
-        <p>如果您對本隱私政策有任何問題或疑慮，請通過以下方式與我們聯絡：</p>
-        <p>電子郵件：support@oinktech.com</p>
-        <p>地址：台北市信義區松仁路123號</p>
-    </div>
-    <div class="language-selector">
-            <label for="language-selector" data-key="selectLanguage">Select language:</label>
-            <select id="language-selector" onchange="changeLanguage()">
-                <option value="zh-Hant">繁體中文</option>
-                <option value="en">English</option>
-                <option value="jp">日本語</option>
-                <option value="korean">한국어</option>
-                <option value="spanish">español</option>
-                <!-- 添加其他语言选项 -->
-            </select>
-        </div>
-    <footer>
-        <p>&copy; 2024 Oinktech. All rights reserved.</p>
-    </footer>
-    <script src="js/script.js"></script>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p id="contact-text">If you have any questions or concerns about this privacy policy, please contact us at:</p>
+            <p id="contact-email">Email: oinktech2024@gmail.com</p>
+        </section>
+    </main>
 </body>
 </html>

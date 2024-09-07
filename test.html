@@ -3,85 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oinktech － 在線人數與歷史瀏覽人數統計</title>
+    <title>Oinktech－測試頁面</title>
+    <link href="css/styles.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: #f0f0f0;
-            text-align: center;
-            padding: 50px;
         }
-
-        #stat-info {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
+        .container {
+            max-width: 960px;
             margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         h1 {
+            text-align: center;
             color: #333;
         }
-
-        p {
-            font-size: 18px;
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .footer-content {
+            margin-bottom: 10px;
+        }
+        .statcounter img {
+            border: none;
+            margin-top: 10px;
+        }
+        .footer-links {
             margin: 10px 0;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Oinktech 網站統計</h1>
-
-    <div id="stat-info">
-        <p>歷史瀏覽人數：<span id="history-views">讀取中...</span></p>
-        <p>當前在線人數：<span id="online-users">讀取中...</span></p>
+    <div class="container">
+        <h1>Oinktech－測試頁面</h1>
     </div>
 
-    <!-- Use ES Modules to import Firebase SDK -->
-    <script type="module">
-        // Import Firebase modules
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
-        import { getDatabase, ref, set, get, onValue, push, remove, update } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyBa94tld1oXCAdzEmcouPxfgPnnJ6bruXg",
-            authDomain: "oinktech-offical-live-people.firebaseapp.com",
-            projectId: "oinktech-offical-live-people",
-            storageBucket: "oinktech-offical-live-people.appspot.com",
-            messagingSenderId: "143391112603",
-            appId: "1:143391112603:web:97e6a5d00aca9cc97d753e",
-            databaseURL: "https://oinktech-offical-live-people-default-rtdb.firebaseio.com/"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-
-        // Reference for total visits
-        const totalVisitsRef = ref(database, 'totalVisits');
-        get(totalVisitsRef).then((snapshot) => {
-            const totalVisits = snapshot.val() || 0;
-            document.getElementById('history-views').textContent = totalVisits;
-        });
-
-        // Reference for online users
-        const onlineUsersRef = ref(database, 'onlineUsers');
-        onValue(onlineUsersRef, (snapshot) => {
-            const onlineUsers = snapshot.size;
-            document.getElementById('online-users').textContent = onlineUsers;
-        });
-
-        // Increment total visits on first load
-        update(totalVisitsRef, (currentValue) => (currentValue || 0) + 1);
-
-        // Add current user to online users
-        const userRef = push(onlineUsersRef, true);
-
-        // Remove the user when they disconnect
-        userRef.onDisconnect().remove();
-    </script>
+    <!-- 頁腳 -->
+    <footer>
+        <div class="footer-content">
+            <p>訪客統計：</p>
+            <!-- Default Statcounter code -->
+            <script type="text/javascript">
+                var sc_project=13034834;
+                var sc_invisible=0;
+                var sc_security="bd33db8e";
+                var scJsHost = "https://";
+                document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+            </script>
+            <noscript>
+                <div class="statcounter">
+                    <a title="real time web analytics" href="https://statcounter.com/" target="_blank">
+                        <img class="statcounter" src="https://c.statcounter.com/13034834/0/bd33db8e/0/" alt="real time web analytics" referrerPolicy="no-referrer-when-downgrade">
+                    </a>
+                </div>
+            </noscript>
+        </div>
+        <div class="footer-link>
+            <a href="privacy.html">隱私政策</a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2024 Oinktech. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

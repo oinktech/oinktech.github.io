@@ -1,38 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1214407462266162"
+     crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js" defer></script>
+    <title data-key="title">Oinktech－隱私政策</title>
+    <!-- Google Analytics 代碼保留 -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-515TXQCF7R');
+    </script>
 </head>
 <body>
     <header>
-        <h1 id="page-title">Privacy Policy</h1>
-        <select id="language-selector">
-            <option value="en">English</option>
-            <option value="zh-Hant">繁體中文</option>
-            <option value="jp">日本語</option>
-            <option value="korean">한국어</option>
-            <option value="spanish">Español</option>
-        </select>
+        <h1><a href="./index.html" data-key="homeLink">Oinktech</a></h1>
+        <nav>
+            <ul>
+                <li><a href="portfolio.html"><box-icon name='file'></box-icon><span data-key="workDisplay">作品展示</span></a></li>
+                <li><a href="about.html"><box-icon type='solid' name='user-detail'></box-icon><span data-key="aboutUs">關於我們</span></a></li>
+                <li><a href="contact.html"><box-icon name='envelope'></box-icon><span data-key="contactUs">聯繫我們</span></a></li>
+                <li><a href="comment.html"><box-icon name='message-rounded-dots'></box-icon><span data-key="commentUs">評論我們</span></a></li>
+            </ul>
+        </nav>
     </header>
-
-    <main>
-        <section id="intro">
-            <p id="intro-text">Welcome to Oinktech. We are committed to protecting and respecting your privacy. This privacy policy explains how we collect, use, and protect your personal information.</p>
-        </section>
-        
-        <section id="sections">
-            <!-- Sections will be injected by JavaScript -->
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p id="contact-text">If you have any questions or concerns about this privacy policy, please contact us at:</p>
-            <p id="contact-email">Email: oinktech2024@gmail.com</p>
-        </section>
+    
+        <p data-key="privacyPolicy"></p>
+        <div class="language-selector">
+            <label for="language-selector" data-key="selectLanguage">Select language:</label>
+            <select id="language-selector" onchange="changeLanguage()">
+                <option value="zh-Hant">繁體中文</option>
+                <option value="en">English</option>
+                <option value="jp">日本語</option>
+                <option value="korean">한국어</option>
+                <option value="spanish">español</option>
+                <!-- 添加其他语言选项 -->
+            </select>
+        </div>
     </main>
+    <footer>
+        <p data-key="footerText">&copy; 2024 All rights reserved by Oinktech.</p>
+    </footer>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <!-- 語言切換的腳本 -->
+    <script src="./js/language.js"></script>
 </body>
 </html>

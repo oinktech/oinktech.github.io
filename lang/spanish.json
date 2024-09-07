@@ -123,8 +123,8 @@
     "link7": "Descargar herramienta de cifrado de archivos",
     "title8": "Mostrar directorio de carpetas",
     "link8": "Descargar herramienta para mostrar directorio de carpetas",
-    "description4": "Cómo usar: Primero agrega las variables de entorno manualmente, luego ingresa 'show_folder' en la terminal y sigue las instrucciones."
-    
+    "description4": "Cómo usar: Primero agrega las variables de entorno manualmente, luego ingresa 'show_folder' en la terminal y sigue las instrucciones.",
+    "title100": "Política de Privacidad",
     "privacyPolicy": {
         "title": "Política de Privacidad",
         "intro": "Bienvenido a Oinktech. Estamos comprometidos a proteger y respetar su privacidad. Esta política de privacidad explica cómo recopilamos, usamos y protegemos su información personal.",

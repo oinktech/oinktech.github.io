@@ -5,42 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>隱私政策 - Oinktech</title>
     <link href="css/styles.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #333;
-        }
-        p {
-            line-height: 1.6;
-            margin: 10px 0;
-        }
-        ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+    
+        
 </head>
 <body>
     <div class="container">
@@ -84,9 +50,20 @@
         <p>電子郵件：support@oinktech.com</p>
         <p>地址：台北市信義區松仁路123號</p>
     </div>
-
+    <div class="language-selector">
+            <label for="language-selector" data-key="selectLanguage">Select language:</label>
+            <select id="language-selector" onchange="changeLanguage()">
+                <option value="zh-Hant">繁體中文</option>
+                <option value="en">English</option>
+                <option value="jp">日本語</option>
+                <option value="korean">한국어</option>
+                <option value="spanish">español</option>
+                <!-- 添加其他语言选项 -->
+            </select>
+        </div>
     <footer>
         <p>&copy; 2024 Oinktech. All rights reserved.</p>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>

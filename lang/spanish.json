@@ -124,4 +124,53 @@
     "title8": "Mostrar directorio de carpetas",
     "link8": "Descargar herramienta para mostrar directorio de carpetas",
     "description4": "Cómo usar: Primero agrega las variables de entorno manualmente, luego ingresa 'show_folder' en la terminal y sigue las instrucciones."
+    
+    "privacyPolicy": {
+        "title": "Política de Privacidad",
+        "intro": "Bienvenido a Oinktech. Estamos comprometidos a proteger y respetar su privacidad. Esta política de privacidad explica cómo recopilamos, usamos y protegemos su información personal.",
+        "section1": {
+            "title": "1. Información que Recopilamos",
+            "content": "Podemos recopilar los siguientes tipos de información:",
+            "items": [
+                "Información Personal: Incluye su nombre, dirección de correo electrónico e información de contacto.",
+                "Datos de Uso: Incluye la hora, fecha, tipo de navegador y páginas que visita en nuestro sitio.",
+                "Cookies: Usamos cookies para mejorar su experiencia de navegación. Las cookies son pequeños archivos de texto almacenados en su dispositivo."
+            ]
+        },
+        "section2": {
+            "title": "2. Cómo Usamos su Información",
+            "content": "Usamos su información para:",
+            "items": [
+                "Proveer y mejorar nuestros servicios.",
+                "Procesar sus solicitudes e inquietudes.",
+                "Enviar notificaciones y actualizaciones sobre nuestros productos y servicios."
+            ]
+        },
+        "section3": {
+            "title": "3. Cómo Protegemos su Información",
+            "content": "Tomamos medidas técnicas y organizativas adecuadas para proteger su información personal contra el acceso no autorizado, divulgación, alteración o destrucción. Revisamos y actualizamos nuestras medidas de seguridad regularmente."
+        },
+        "section4": {
+            "title": "4. Cómo Compartimos su Información",
+            "content": "No vendemos ni alquilamos su información personal a terceros. Podemos compartir su información en las siguientes situaciones:",
+            "items": [
+                "Cuando sea requerido por la ley, o para cumplir con procedimientos legales.",
+                "Con nuestros proveedores de servicios o socios para ayudarnos a ofrecer nuestros servicios."
+            ]
+        },
+        "section5": {
+            "title": "5. Sus Derechos",
+            "content": "Usted tiene derecho a solicitar acceso, corrección o eliminación de su información personal. Si desea ejercer estos derechos, por favor contáctenos."
+        },
+        "section6": {
+            "title": "6. Cambios en la Política de Privacidad",
+            "content": "Podemos actualizar esta política de privacidad de vez en cuando. Cualquier cambio será publicado en esta página, y se le notificará por correo electrónico antes de que los cambios entren en vigor."
+        },
+        "section7": {
+            "title": "7. Contáctenos",
+            "content": "Si tiene alguna pregunta o inquietud sobre esta política de privacidad, por favor contáctenos en:",
+            "contactEmail": "Correo electrónico: oinktech2024@gmail.com"
+        }
+    }
+
 }

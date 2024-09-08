@@ -1,18 +1,16 @@
-/* CSS变量 */
 :root {
-    --primary-color: #333; /* 主色：深灰 */
-    --secondary-color: #444; /* 次色：中灰 */
-    --accent-color: #00BFFF; /* 强调色：天蓝色 */
-    --background-color: #1e1e1e; /* 背景色：深色 */
-    --text-color: #e0e0e0; /* 文字色：淡灰色 */
+    --primary-color: #333;
+    --secondary-color: #444;
+    --accent-color: #00BFFF;
+    --background-color: #1e1e1e;
+    --text-color: #e0e0e0;
     --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    --gradient-start: #333; /* 渐变起始色 */
-    --gradient-end: #555; /* 渐变结束色 */
-    --hover-color: #1e90ff; /* 悬停色 */
-    --active-color: #1c86ee; /* 点击色 */
+    --gradient-start: #333;
+    --gradient-end: #555;
+    --hover-color: #1e90ff;
+    --active-color: #1c86ee;
 }
 
-/* 基本样式 */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
@@ -20,15 +18,13 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden; /* 防止水平滚动 */
+    overflow-x: hidden;
 }
 
-/* 平滑滚动 */
 html {
     scroll-behavior: smooth;
 }
 
-/* 头部样式 */
 header {
     background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     color: var(--text-color);
@@ -47,7 +43,6 @@ header:hover {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
 }
 
-/* 导航菜单样式 */
 nav ul {
     list-style: none;
     padding: 0;
@@ -93,7 +88,6 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-/* 主体样式 */
 main {
     padding: 40px 20px;
     max-width: 1200px;
@@ -104,42 +98,40 @@ main {
     animation: fadeIn 1.5s ease;
 }
 
-/* 美化最新消息区域 */
 .latest-news {
-    background-color: #eee9c0; /* 背景颜色 */
-    padding: 10px 20px;        /* 内间距 */
-    border-radius: 5px;        /* 圆角 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影 */
-    margin: 20px 0;            /* 外间距 */
-    font-family: 'Arial', sans-serif; /* 字体 */
-    display: flex;             /* 让内部内容水平对齐 */
-    align-items: center;       /* 垂直置中 */
+    background-color: #eee9c0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
     text-align: center;
-    overflow: hidden; /* 防止文本溢出 */
-    word-wrap: break-word; /* 确保长单词换行 */
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .latest-new {
-    font-size: 1.2em;          /* 字体大小 */
-    font-weight: bold;         /* 加粗字体 */
-    color: #333;               /* 文字颜色 */
-    display: flex;             /* 让内容行内显示 */
-    align-items: center;       /* 垂直置中 */
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
 }
 
 .latest-new a {
-    color: #d32f2f;            /* 连接颜色 */
-    text-decoration: none;     /* 移除底线 */
-    margin-left: 5px;          /* 与前面文字间距 */
+    color: #d32f2f;
+    text-decoration: none;
+    margin-left: 5px;
 }
 
 .latest-new a:hover {
-    color: #b71c1c;            /* 鼠标悬停时改变颜色 */
-    text-decoration: underline; /* 悬停时显示底线 */
-    transition: color 0.3s ease; /* 颜色变化过渡 */
+    color: #b71c1c;
+    text-decoration: underline;
+    transition: color 0.3s ease;
 }
 
-/* 添加一些简单的动画效果 */
 .latest-news {
     animation: fadeIn 1s ease-in-out;
 }
@@ -194,7 +186,6 @@ main {
     }
 }
 
-/* 页脚样式 */
 footer {
     background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     color: var(--text-color);
@@ -207,7 +198,6 @@ footer {
     border-top: 4px solid var(--accent-color);
 }
 
-/* 英雄区域 */
 .hero {
     text-align: center;
     margin-bottom: 40px;
@@ -219,7 +209,6 @@ footer {
     animation: slideInLeft 1s ease;
 }
 
-/* 特色和项目区域 */
 .features, .portfolio, .about, .contact {
     margin: 40px 0;
     animation: fadeInUp 1.2s ease;
@@ -240,7 +229,6 @@ footer {
     background-color: #4a4a4a;
 }
 
-/* 表单样式 */
 form {
     display: flex;
     flex-direction: column;
@@ -271,34 +259,4 @@ form input, form textarea {
 form input:focus, form textarea:focus {
     border-color: var(--accent-color);
     box-shadow: 0 0 8px var(--accent-color);
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    nav ul {
-        display: flex;
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    main {
-        padding: 20px;
-    }
-
-    .latest-news {
-        padding: 15px;
-    }
-
-    .hero {
-        padding: 40px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .latest-new {
-        font-size: 1em;
-    }
 }

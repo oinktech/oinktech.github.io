@@ -193,8 +193,11 @@
   "section-contribute-title": "How to Contribute",
   "section-contribute-content": "If you are interested in contributing or submitting issues, please visit the project’s GitHub repository: GitHub Project Query and Recommendation.",
     "404-title":"404 Page not found",
-    "404-p1":"Oops! The page you're looking for can't be found.",
-    "404-p2":"Return to the <a href='https://oinktech.github.io'>homepage</a> or <a href='https://oinktech.github.io/contact'>contact us</a> for assistance."
-
+    "404-p1": "Oops! The page you're looking for can't be found.",
+    "404-p2-1": "Return to the ",
+    "404-p2-2": "homepage",
+    "404-p2-3": "or",
+    "404-p2-4": "contact us",
+    "404-p2-5": "for assistance."
 }
     

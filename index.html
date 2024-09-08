@@ -9,6 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-key="title">Oinktech</title>
     <!-- Google Analytics 代碼保留 -->
+    <style>
+          #title-png {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#title-png:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+</style>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -18,7 +35,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="./index.html" ><img src="images/favicon.ico">Oinktech</a></h1>
+        <h1><a href="./index.html" ><img src="images/favicon.ico" alt="Oinktech" id="title-png">Oinktech</a></h1>
         <nav>
             <ul>
                 <li><a href="portfolio.html"><box-icon name='file'></box-icon><span data-key="workDisplay">作品展示</span></a></li>

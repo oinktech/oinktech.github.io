@@ -114,17 +114,21 @@ main {
     font-family: 'Arial', sans-serif; /* 字體 */
     display: flex;             /* 讓內部內容水平對齊 */
     align-items: center;       /* 垂直置中 */
-    text-align: center; 
+    text-align: center;
+    flex-direction: column;    /* 使内容纵向排列 */
 }
 
+/* 最新消息文本 */
 .latest-new {
     font-size: 1.2em;          /* 字體大小 */
     font-weight: bold;         /* 加粗字體 */
     color: #333;               /* 文字顏色 */
     display: flex;             /* 讓內容行內顯示 */
     align-items: center;       /* 垂直置中 */
+    margin-bottom: 10px;       /* 与下一个消息的间距 */
 }
 
+/* 最新消息链接 */
 .latest-new a {
     color: #d32f2f;            /* 連結顏色 */
     text-decoration: none;     /* 移除底線 */
@@ -145,19 +149,6 @@ main {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-
-/* 动画效果 */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 @keyframes slideInLeft {
@@ -270,163 +261,69 @@ form label {
 }
 
 form input, form textarea {
-    padding: 14px;
-    margin-top: 8px;
+    padding: 10px;
+    margin-top: 5px;
     border: 1px solid #444;
-    border-radius: 8px;
-    background: #333;
+    border-radius: 6px;
+    background: #1e1e1e;
     color: var(--text-color);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-form input:focus, form textarea:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 8px var(--accent-color);
-    outline: none;
 }
 
 form button {
     margin-top: 20px;
-    padding: 14px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
     background-color: var(--accent-color);
     color: #fff;
-    border: none;
-    border-radius: 8px;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 form button:hover {
     background-color: var(--hover-color);
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 form button:active {
     background-color: var(--active-color);
-    transform: scale(0.98);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* 自定义滚动条样式 */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--secondary-color);
-    border-radius: 10px;
-    transition: background 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-color);
-}
-
-/* 链接样式 */
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
-}
-
-a::before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease;
-}
-
-a:hover {
-    color: var(--hover-color);
-    transform: translateY(-2px);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-a:hover::before {
-    width: 100%;
-}
-
-/* 下载链接 */
-a.download-link {
-    display: inline-block;
-    padding: 12px 24px;
-    margin: 20px;
-    font-size: 16px;
-    color: #ffffff;
-    background-color: var(--accent-color);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-a.download-link:hover {
-    background-color: var(--hover-color);
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-a.download-link:active {
-    background-color: var(--active-color);
-    transform: scale(0.98);
-}
-/* 语言选择器容器样式 */
-.language-selector {
-    margin: 20px 0;
-    text-align: center; /* 居中对齐 */
-    font-family: 'Roboto', Arial, sans-serif;
-    color: var(--text-color);
-    background-color: #2e2e2e;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
-    width: fit-content;
-    margin: 0 auto; /* 水平居中 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* 标签样式 */
-.language-selector label {
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-/* 下拉列表样式 */
-.language-selector select {
-    padding: 10px 14px;
-    font-size: 16px;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    border: 1px solid var(--secondary-color);
+/* 页脚小部件 */
+footer .widget {
+    padding: 20px;
+    background-color: #333;
     border-radius: 6px;
-    appearance: none; /* 隐藏默认的下拉箭头，适用于部分浏览器 */
-    cursor: pointer;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
 }
 
-/* 自定义下拉箭头 */
-.language-selector select:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 8px var(--accent-color);
+footer .widget h3 {
+    margin: 0;
+    font-size: 1.2em;
 }
 
-/* 悬停和活动状态 */
-.language-selector select:hover {
-    background-color: #3a3a3a;
+footer .widget p {
+    font-size: 0.9em;
 }
 
-.language-selector select:active {
-    background-color: var(--hover-color);
-}
+/* 媒体查询：适应移动设备 */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 
-/* 选择器容器的悬停效果 */
-.language-selector:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    header {
+        padding: 10px 0;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    form {
+        padding: 10px;
+    }
 }

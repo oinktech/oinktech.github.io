@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="gpqar-title">Code Architect Studio - Oinktech</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <h1><a href="./index.html">Oinktech</a></h1>
+        <nav>
+            <ul>
+                <li><a href="portfolio.html"><box-icon name='file'></box-icon><span data-key="workDisplay">作品展示</span></a></li>
+                <li><a href="about.html"><box-icon type='solid' name='user-detail'></box-icon><span data-key="aboutUs">關於我們</span></a></li>
+                <li><a href="contact.html"><box-icon name='envelope'></box-icon><span data-key="contactUs">聯繫我們</span></a></li>
+                <li><a href="comment.html"><box-icon name='message-rounded-dots'></box-icon><span data-key="commentUs">評論我們</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+                 
+<header>
+    <h1 data-key="gpqar-title">GitHub 專案查詢與推薦系統 - 詳細介紹與使用手冊</h1>
+</header>
+
+<section>
+    <h2 data-key="section-intro-title">網站簡介</h2>
+    <p data-key="section-intro-content">
+        GitHub 專案查詢與推薦系統是一個基於 GitHub API 的應用，旨在幫助開發者快速查詢及發現有價值的開源項目。
+        該工具提供三個核心功能：專案搜尋、推薦專案，以及熱門專案展示。
+    </p>
+</section>
+
+<section>
+    <h2 data-key="section-features-title">主要功能介紹</h2>
+    <p data-key="section-features-search">
+        <strong>1. 專案搜尋：</strong> 使用者可以輸入關鍵字來搜尋 GitHub 上的開源專案。系統會根據使用者輸入的關鍵字返回匹配的專案，並顯示在專案列表中。
+    </p>
+    <p data-key="section-features-recommend">
+        <strong>2. 推薦專案：</strong> 根據使用者的搜尋歷史或預定標籤，系統會自動推薦相關的開源專案，幫助使用者發現更多有趣的項目。
+    </p>
+    <p data-key="section-features-trending">
+        <strong>3. 熱門專案：</strong> 展示當前 GitHub 平台上最受歡迎的專案，讓使用者快速掌握最新的開源趨勢。
+    </p>
+</section>
+
+<section>
+    <h2 data-key="section-usage-title">使用步驟</h2>
+    <p data-key="section-usage-step1">
+        <strong>步驟 1：</strong> 進入首頁後，您可以看到三個功能按鈕：「搜尋專案」、「推薦專案」、「熱門專案」。
+    </p>
+    <p data-key="section-usage-step2">
+        <strong>步驟 2：</strong> 點擊「搜尋專案」，輸入您感興趣的專案名稱或關鍵字，然後點擊「搜尋」按鈕。搜尋結果會顯示在下方列表中。
+    </p>
+    <p data-key="section-usage-step3">
+        <strong>步驟 3：</strong> 點擊「推薦專案」按鈕，系統會自動為您推薦相關的開源專案。
+    </p>
+    <p data-key="section-usage-step4">
+        <strong>步驟 4：</strong> 點擊「熱門專案」按鈕，查看當前 GitHub 上的熱門專案列表。
+    </p>
+</section>
+
+<section>
+    <h2 data-key="section-tech-title">技術細節</h2>
+    <p data-key="section-tech-content">
+        這個網站前端主要使用 HTML、CSS 和 JavaScript 來構建，並透過 GitHub API 來取得專案資料。網站的使用者介面設計簡潔並支援響應式布局，以確保在各種設備上都能有良好的使用體驗。
+    </p>
+</section>
+
+<section>
+    <h2 data-key="section-contribute-title">如何貢獻</h2>
+    <p data-key="section-contribute-content">
+        若您有興趣貢獻此專案或提交問題，歡迎前往專案的 GitHub 儲存庫進行參與：[GitHub 專案查詢與推薦](<a href="https://github.com/oinktech/GitHub-project-query-and-recommendation">https://github.com/oinktech/GitHub-project-query-and-recommendation</a>)。
+    </p>
+</section>
+
+
+        <div class="language-selector">
+            <label for="language-selector" data-key="selectLanguage">Select language:</label>
+            <select id="language-selector" onchange="changeLanguage()">
+                <option value="zh-Hant">繁體中文</option>
+                <option value="en">English</option>
+                <option value="jp">日本語</option>
+                <option value="korean">한국어</option>
+                <option value="spanish">español</option>
+                <!-- 添加其他语言选项 -->
+            </select>
+        </div>
+    </main>
+
+    <footer>
+        <p data-key="footerText">&copy; 2024 All rights reserved by Oinktech.</p>
+    </footer>
+    <script src="./js/language.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+</html>

@@ -56,7 +56,7 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin: 0 20px;
     position: relative;
 }
@@ -104,44 +104,42 @@ main {
     animation: fadeIn 1.5s ease;
 }
 
-/* 美化最新消息區域 */
+/* 美化最新消息区域 */
 .latest-news {
-    background-color: #eee9c0; /* 背景顏色 */
-    padding: 10px 20px;        /* 內間距 */
-    border-radius: 5px;        /* 圓角 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 陰影 */
-    margin: 20px 0;            /* 外間距 */
-    font-family: 'Arial', sans-serif; /* 字體 */
-    display: flex;             /* 讓內部內容水平對齊 */
+    background-color: #eee9c0; /* 背景颜色 */
+    padding: 10px 20px;        /* 内间距 */
+    border-radius: 5px;        /* 圆角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影 */
+    margin: 20px 0;            /* 外间距 */
+    font-family: 'Arial', sans-serif; /* 字体 */
+    display: flex;             /* 让内部内容水平对齐 */
     align-items: center;       /* 垂直置中 */
     text-align: center;
-    flex-direction: column;    /* 使内容纵向排列 */
+    overflow: hidden; /* 防止文本溢出 */
+    word-wrap: break-word; /* 确保长单词换行 */
 }
 
-/* 最新消息文本 */
 .latest-new {
-    font-size: 1.2em;          /* 字體大小 */
-    font-weight: bold;         /* 加粗字體 */
-    color: #333;               /* 文字顏色 */
-    display: flex;             /* 讓內容行內顯示 */
+    font-size: 1.2em;          /* 字体大小 */
+    font-weight: bold;         /* 加粗字体 */
+    color: #333;               /* 文字颜色 */
+    display: flex;             /* 让内容行内显示 */
     align-items: center;       /* 垂直置中 */
-    margin-bottom: 10px;       /* 与下一个消息的间距 */
 }
 
-/* 最新消息链接 */
 .latest-new a {
-    color: #d32f2f;            /* 連結顏色 */
-    text-decoration: none;     /* 移除底線 */
-    margin-left: 5px;          /* 與前面文字間距 */
+    color: #d32f2f;            /* 连接颜色 */
+    text-decoration: none;     /* 移除底线 */
+    margin-left: 5px;          /* 与前面文字间距 */
 }
 
 .latest-new a:hover {
-    color: #b71c1c;            /* 滑鼠懸停時改變顏色 */
-    text-decoration: underline; /* 懸停時顯示底線 */
-    transition: color 0.3s ease; /* 顏色變化過渡 */
+    color: #b71c1c;            /* 鼠标悬停时改变颜色 */
+    text-decoration: underline; /* 悬停时显示底线 */
+    transition: color 0.3s ease; /* 颜色变化过渡 */
 }
 
-/* 添加一些簡單的動畫效果 */
+/* 添加一些简单的动画效果 */
 .latest-news {
     animation: fadeIn 1s ease-in-out;
 }
@@ -261,69 +259,46 @@ form label {
 }
 
 form input, form textarea {
-    padding: 10px;
-    margin-top: 5px;
+    padding: 14px;
+    margin-top: 8px;
     border: 1px solid #444;
-    border-radius: 6px;
-    background: #1e1e1e;
+    border-radius: 8px;
+    background: #333;
     color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-form button {
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    background-color: var(--accent-color);
-    color: #fff;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+form input:focus, form textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
 }
 
-form button:hover {
-    background-color: var(--hover-color);
-    transform: scale(1.05);
-}
-
-form button:active {
-    background-color: var(--active-color);
-}
-
-/* 页脚小部件 */
-footer .widget {
-    padding: 20px;
-    background-color: #333;
-    border-radius: 6px;
-    box-shadow: var(--box-shadow);
-    margin-bottom: 20px;
-}
-
-footer .widget h3 {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-footer .widget p {
-    font-size: 0.9em;
-}
-
-/* 媒体查询：适应移动设备 */
+/* 响应式设计 */
 @media (max-width: 768px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+
     nav ul li {
-        display: block;
         margin: 10px 0;
     }
 
-    header {
-        padding: 10px 0;
+    main {
+        padding: 20px;
+    }
+
+    .latest-news {
+        padding: 15px;
     }
 
     .hero {
         padding: 40px 20px;
     }
+}
 
-    form {
-        padding: 10px;
+@media (max-width: 480px) {
+    .latest-new {
+        font-size: 1em;
     }
 }

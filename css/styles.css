@@ -1,16 +1,18 @@
+/* CSS变量 */
 :root {
-    --primary-color: #333;
-    --secondary-color: #444;
-    --accent-color: #00BFFF;
-    --background-color: #1e1e1e;
-    --text-color: #e0e0e0;
+    --primary-color: #333; /* 主色：深灰 */
+    --secondary-color: #444; /* 次色：中灰 */
+    --accent-color: #00BFFF; /* 强调色：天蓝色 */
+    --background-color: #1e1e1e; /* 背景色：深色 */
+    --text-color: #e0e0e0; /* 文字色：淡灰色 */
     --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    --gradient-start: #333;
-    --gradient-end: #555;
-    --hover-color: #1e90ff;
-    --active-color: #1c86ee;
+    --gradient-start: #333; /* 渐变起始色 */
+    --gradient-end: #555; /* 渐变结束色 */
+    --hover-color: #1e90ff; /* 悬停色 */
+    --active-color: #1c86ee; /* 点击色 */
 }
 
+/* 基本样式 */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
@@ -18,13 +20,15 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* 防止水平滚动 */
 }
 
+/* 平滑滚动 */
 html {
     scroll-behavior: smooth;
 }
 
+/* 头部样式 */
 header {
     background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     color: var(--text-color);
@@ -43,6 +47,7 @@ header:hover {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
 }
 
+/* 导航菜单样式 */
 nav ul {
     list-style: none;
     padding: 0;
@@ -51,7 +56,7 @@ nav ul {
 }
 
 nav ul li {
-    display: inline-block;
+    display: inline;
     margin: 0 20px;
     position: relative;
 }
@@ -88,6 +93,7 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+/* 主体样式 */
 main {
     padding: 40px 20px;
     max-width: 1200px;
@@ -98,40 +104,40 @@ main {
     animation: fadeIn 1.5s ease;
 }
 
+/* 美化最新消息區域 */
 .latest-news {
-    background-color: #eee9c0;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    word-wrap: break-word;
+    background-color: #eee9c0; /* 背景顏色 */
+    padding: 10px 20px;        /* 內間距 */
+    border-radius: 5px;        /* 圓角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 陰影 */
+    margin: 20px 0;            /* 外間距 */
+    font-family: 'Arial', sans-serif; /* 字體 */
+    display: flex;             /* 讓內部內容水平對齊 */
+    align-items: center;       /* 垂直置中 */
+    text-align: center; 
 }
 
 .latest-new {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333;
-    display: flex;
-    align-items: center;
+    font-size: 1.2em;          /* 字體大小 */
+    font-weight: bold;         /* 加粗字體 */
+    color: #333;               /* 文字顏色 */
+    display: flex;             /* 讓內容行內顯示 */
+    align-items: center;       /* 垂直置中 */
 }
 
 .latest-new a {
-    color: #d32f2f;
-    text-decoration: none;
-    margin-left: 5px;
+    color: #d32f2f;            /* 連結顏色 */
+    text-decoration: none;     /* 移除底線 */
+    margin-left: 5px;          /* 與前面文字間距 */
 }
 
 .latest-new a:hover {
-    color: #b71c1c;
-    text-decoration: underline;
-    transition: color 0.3s ease;
+    color: #b71c1c;            /* 滑鼠懸停時改變顏色 */
+    text-decoration: underline; /* 懸停時顯示底線 */
+    transition: color 0.3s ease; /* 顏色變化過渡 */
 }
 
+/* 添加一些簡單的動畫效果 */
 .latest-news {
     animation: fadeIn 1s ease-in-out;
 }
@@ -139,6 +145,19 @@ main {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideInLeft {
@@ -186,6 +205,7 @@ main {
     }
 }
 
+/* 页脚样式 */
 footer {
     background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     color: var(--text-color);
@@ -198,6 +218,7 @@ footer {
     border-top: 4px solid var(--accent-color);
 }
 
+/* 英雄区域 */
 .hero {
     text-align: center;
     margin-bottom: 40px;
@@ -209,6 +230,7 @@ footer {
     animation: slideInLeft 1s ease;
 }
 
+/* 特色和项目区域 */
 .features, .portfolio, .about, .contact {
     margin: 40px 0;
     animation: fadeInUp 1.2s ease;
@@ -229,6 +251,7 @@ footer {
     background-color: #4a4a4a;
 }
 
+/* 表单样式 */
 form {
     display: flex;
     flex-direction: column;
@@ -259,4 +282,151 @@ form input, form textarea {
 form input:focus, form textarea:focus {
     border-color: var(--accent-color);
     box-shadow: 0 0 8px var(--accent-color);
+    outline: none;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 14px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+form button:active {
+    background-color: var(--active-color);
+    transform: scale(0.98);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* 链接样式 */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+a:hover::before {
+    width: 100%;
+}
+
+/* 下载链接 */
+a.download-link {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.download-link:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+a.download-link:active {
+    background-color: var(--active-color);
+    transform: scale(0.98);
+}
+/* 语言选择器容器样式 */
+.language-selector {
+    margin: 20px 0;
+    text-align: center; /* 居中对齐 */
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    width: fit-content;
+    margin: 0 auto; /* 水平居中 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 标签样式 */
+.language-selector label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* 下拉列表样式 */
+.language-selector select {
+    padding: 10px 14px;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    appearance: none; /* 隐藏默认的下拉箭头，适用于部分浏览器 */
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* 自定义下拉箭头 */
+.language-selector select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* 悬停和活动状态 */
+.language-selector select:hover {
+    background-color: #3a3a3a;
+}
+
+.language-selector select:active {
+    background-color: var(--hover-color);
+}
+
+/* 选择器容器的悬停效果 */
+.language-selector:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }

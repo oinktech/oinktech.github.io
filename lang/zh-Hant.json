@@ -184,5 +184,22 @@
             "content": "如果您對本隱私政策有任何問題或疑慮，請通過以下方式與我們聯絡：",
             "contactEmail": "電子郵件：oinktech2024@gmail.com"
         }
-    }
+    },
+  "gpqar-title": "GitHub 專案查詢與推薦系統 - 詳細介紹與使用手冊 - Oinktech",
+  "section-intro-title": "網站簡介",
+  "section-intro-content": "GitHub 專案查詢與推薦系統是一個基於 GitHub API 的應用，旨在幫助開發者快速查詢及發現有價值的開源項目。該工具提供三個核心功能：專案搜尋、推薦專案，以及熱門專案展示。",
+  "section-features-title": "主要功能介紹",
+  "section-features-search": "1. 專案搜尋：使用者可以輸入關鍵字來搜尋 GitHub 上的開源專案。系統會根據使用者輸入的關鍵字返回匹配的專案，並顯示在專案列表中。",
+  "section-features-recommend": "2. 推薦專案：根據使用者的搜尋歷史或預定標籤，系統會自動推薦相關的開源專案，幫助使用者發現更多有趣的項目。",
+  "section-features-trending": "3. 熱門專案：展示當前 GitHub 平台上最受歡迎的專案，讓使用者快速掌握最新的開源趨勢。",
+  "section-usage-title": "使用步驟",
+  "section-usage-step1": "步驟 1：進入首頁後，您可以看到三個功能按鈕：「搜尋專案」、「推薦專案」、「熱門專案」。",
+  "section-usage-step2": "步驟 2：點擊「搜尋專案」，輸入您感興趣的專案名稱或關鍵字，然後點擊「搜尋」按鈕。搜尋結果會顯示在下方列表中。",
+  "section-usage-step3": "步驟 3：點擊「推薦專案」按鈕，系統會自動為您推薦相關的開源專案。",
+  "section-usage-step4": "步驟 4：點擊「熱門專案」按鈕，查看當前 GitHub 上的熱門專案列表。",
+  "section-tech-title": "技術細節",
+  "section-tech-content": "這個網站前端主要使用 HTML、CSS 和 JavaScript 來構建，並透過 GitHub API 來取得專案資料。網站的使用者介面設計簡潔並支援響應式布局，以確保在各種設備上都能有良好的使用體驗。",
+  "section-contribute-title": "如何貢獻",
+  "section-contribute-content": "若您有興趣貢獻此專案或提交問題，歡迎前往專案的 GitHub 儲存庫進行參與：GitHub 專案查詢與推薦。"
+
 }

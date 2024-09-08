@@ -191,7 +191,10 @@
   "section-tech-title": "Technical Details",
   "section-tech-content": "This website is primarily built using HTML, CSS, and JavaScript for the front end, and utilizes the GitHub API to fetch project data. The interface is simple, responsive, and works well across various devices.",
   "section-contribute-title": "How to Contribute",
-  "section-contribute-content": "If you are interested in contributing or submitting issues, please visit the project’s GitHub repository: GitHub Project Query and Recommendation."
+  "section-contribute-content": "If you are interested in contributing or submitting issues, please visit the project’s GitHub repository: GitHub Project Query and Recommendation.",
+    "404-title":"404 Page not found",
+    "404-p1":"Oops! The page you're looking for can't be found.",
+    "404-p2":"Return to the <a href="https://oinktech.github.io">homepage</a> or <a href="https://oinktech.github.io/contact">contact us</a> for assistance.</p>"
 
 }
     

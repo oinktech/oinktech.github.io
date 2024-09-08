@@ -10,6 +10,11 @@
     <title data-key="title">Oinktech</title>
     <!-- Google Analytics 代碼保留 -->
     <style>
+        .title-link {
+    display: inline-flex;
+    align-items: center; /* 垂直居中对齐 */
+}
+
           #title-png {
     width: 50px;
     height: auto;
@@ -17,6 +22,8 @@
     border: 2px solid #000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
+              vertical-align: middle; /* 垂直对齐文字中部 */
+    margin-right: 10px; /* 图片和文字之间的间距 */
 }
 
 #title-png:hover {
@@ -35,7 +42,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="./index.html" ><img src="images/favicon.ico" alt="Oinktech" id="title-png">Oinktech</a></h1>
+        <h1><a href="./index.html" class="title-link"><img src="images/favicon.ico" alt="Oinktech" id="title-png">Oinktech</a></h1>
         <nav>
             <ul>
                 <li><a href="portfolio.html"><box-icon name='file'></box-icon><span data-key="workDisplay">作品展示</span></a></li>

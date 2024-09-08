@@ -171,6 +171,13 @@
             "content": "Si tiene alguna pregunta o inquietud sobre esta política de privacidad, por favor contáctenos en:",
             "contactEmail": "Correo electrónico: oinktech2024@gmail.com"
         }
-    }
+    },
+    "404-title": "404-Página no encontrada",
+    "404-p1": "¡Vaya! La página que buscas no se puede encontrar.",
+    "404-p2-1": "Regresa a la ",
+    "404-p2-2": "página principal",
+    "404-p2-3": "o",
+    "404-p2-4": "contáctanos",
+    "404-p2-5": "para obtener asistencia."
 
 }

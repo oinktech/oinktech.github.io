@@ -9,13 +9,31 @@
 </head>
 <body>
     <header>
-           <h1>404</h1>
+           <h1>404-Page not found</h1>
     </header>
     <main>
-        <img src="images/404.png">
+        <img src="images/404.png" alt="404 not found">
     <p>Oops! The page you're looking for can't be found.</p>
     <p>Return to the <a href="https://oinktech.github.io">homepage</a> or <a href="https://oinktech.github.io/contact">contact us</a> for assistance.</p>
-
+        <div class="language-selector">
+            <label for="language-selector" data-key="selectLanguage">Select language:</label>
+            <select id="language-selector" onchange="changeLanguage()">
+                <option value="zh-Hant">繁體中文</option>
+                <option value="en">English</option>
+                <option value="jp">日本語</option>
+                <option value="korean">한국어</option>
+                <option value="spanish">español</option>
+                <!-- 添加其他语言选项 -->
+            </select>
+        </div>
     </main>
+    <footer>
+        <p data-key="footerText">&copy; 2024 All rights reserved by Oinktech.</p>
+    </footer>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <!-- 語言切換的腳本 -->
+    <script src="./js/language.js"></script>
     </body>
 </html>

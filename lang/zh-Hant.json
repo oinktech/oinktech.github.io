@@ -200,6 +200,9 @@
   "section-tech-title": "技術細節",
   "section-tech-content": "這個網站前端主要使用 HTML、CSS 和 JavaScript 來構建，並透過 GitHub API 來取得專案資料。網站的使用者介面設計簡潔並支援響應式布局，以確保在各種設備上都能有良好的使用體驗。",
   "section-contribute-title": "如何貢獻",
-  "section-contribute-content": "若您有興趣貢獻此專案或提交問題，歡迎前往專案的 GitHub 儲存庫進行參與：GitHub 專案查詢與推薦。"
+  "section-contribute-content": "若您有興趣貢獻此專案或提交問題，歡迎前往專案的 GitHub 儲存庫進行參與：GitHub 專案查詢與推薦。",
+  "404-title": "404 頁面未找到",
+  "404-p1": "哎呀！您正在尋找的頁面無法找到。",
+  "404-p2": "返回 <a href=\"https://oinktech.github.io\">首頁</a> 或 <a href=\"https://oinktech.github.io/contact\">聯繫我們</a> 以獲取幫助。"
 
 }

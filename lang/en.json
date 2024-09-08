@@ -175,7 +175,23 @@
             "content": "If you have any questions or concerns about this privacy policy, please contact us at:",
             "contactEmail": "Email: oinktech2024@gmail.com"
         }
-    }
+    },
+  "gpqar-title": "GitHub Project Query and Recommendation - Detailed Guide - Oinktech",
+  "section-intro-title": "Website Introduction",
+  "section-intro-content": "The GitHub Project Query and Recommendation system is an application based on the GitHub API, designed to help developers quickly search and discover valuable open-source projects. The tool offers three main features: project search, project recommendations, and trending projects.",
+  "section-features-title": "Main Features",
+  "section-features-search": "1. Project Search: Users can input keywords to search for open-source projects on GitHub. The system will return matching projects based on the user's keywords and display them in a list.",
+  "section-features-recommend": "2. Project Recommendations: Based on the user’s search history or predefined tags, the system will automatically recommend relevant open-source projects to help users discover more.",
+  "section-features-trending": "3. Trending Projects: Displays the most popular projects on GitHub, allowing users to quickly view the latest open-source trends.",
+  "section-usage-title": "How to Use",
+  "section-usage-step1": "Step 1: On the homepage, you will find three function buttons: 'Search Projects', 'Recommended Projects', and 'Trending Projects'.",
+  "section-usage-step2": "Step 2: Click 'Search Projects', enter the project name or keyword you are interested in, then click 'Search'. Results will be displayed below.",
+  "section-usage-step3": "Step 3: Click 'Recommended Projects', and the system will automatically suggest relevant open-source projects.",
+  "section-usage-step4": "Step 4: Click 'Trending Projects' to view the currently trending projects on GitHub.",
+  "section-tech-title": "Technical Details",
+  "section-tech-content": "This website is primarily built using HTML, CSS, and JavaScript for the front end, and utilizes the GitHub API to fetch project data. The interface is simple, responsive, and works well across various devices.",
+  "section-contribute-title": "How to Contribute",
+  "section-contribute-content": "If you are interested in contributing or submitting issues, please visit the project’s GitHub repository: GitHub Project Query and Recommendation."
 
 }
     

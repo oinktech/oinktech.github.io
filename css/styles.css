@@ -1,44 +1,27 @@
 :root {
-    /* 深色模式 */
-    --primary-color: #333; 
-    --secondary-color: #444; 
-    --accent-color: #00BFFF; 
-    --background-color: #1e1e1e; 
-    --text-color: #e0e0e0; 
+    --primary-color: #333; /* 主色：深灰 */
+    --secondary-color: #444; /* 次色：中灰 */
+    --accent-color: #00BFFF; /* 强调色：天蓝色 */
+    --background-color: #1e1e1e; /* 背景色：深色 */
+    --text-color: #e0e0e0; /* 文字色：淡灰色 */
     --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    --gradient-start: #333; 
-    --gradient-end: #555; 
-    --hover-color: #1e90ff; 
-    --active-color: #1c86ee; 
+    --gradient-start: #333; /* 渐变起始色 */
+    --gradient-end: #555; /* 渐变结束色 */
+    --hover-color: #1e90ff; /* 悬停色 */
+    --active-color: #1c86ee; /* 点击色 */
 }
-.light-mode{
-    /* 浅色模式 */
-    --light-primary-color: #f0f0f0; 
-    --light-secondary-color: #ccc; 
-    --light-accent-color: #0078d4; 
-    --light-background-color: #ffffff; 
-    --light-text-color: #333333; 
-    --light-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    --light-gradient-start: #e0e0e0; 
-    --light-gradient-end: #c0c0c0; 
-    --light-hover-color: #005bb5; 
-    --light-active-color: #004085; 
+.light-mode {
+    --primary-color: #f0f0f0; /* 主色：浅灰 */
+    --secondary-color: #ccc; /* 次色：更浅的灰 */
+    --accent-color: #0078d4; /* 强调色：蓝色 */
+    --background-color: #ffffff; /* 背景色：白色 */
+    --text-color: #333333; /* 文字色：深灰 */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --gradient-start: #e0e0e0; /* 渐变起始色 */
+    --gradient-end: #c0c0c0; /* 渐变结束色 */
+    --hover-color: #005bb5; /* 悬停色 */
+    --active-color: #004085; /* 点击色 */
 }
-
-/* 切换到浅色模式时 */
-body.light-mode {
-    --primary-color: var(--light-primary-color);
-    --secondary-color: var(--light-secondary-color);
-    --accent-color: var(--light-accent-color);
-    --background-color: var(--light-background-color);
-    --text-color: var(--light-text-color);
-    --box-shadow: var(--light-box-shadow);
-    --gradient-start: var(--light-gradient-start);
-    --gradient-end: var(--light-gradient-end);
-    --hover-color: var(--light-hover-color);
-    --active-color: var(--light-active-color);
-}
-
 /* 基本样式 */
 body {
     font-family: 'Roboto', Arial, sans-serif;
@@ -47,7 +30,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden; 
+    overflow-x: hidden; /* 防止水平滚动 */
 }
 
 /* 平滑滚动 */
@@ -131,65 +114,105 @@ main {
     animation: fadeIn 1.5s ease;
 }
 
-/* 最新消息样式 */
+/* 美化最新消息區域 */
 .latest-news {
-    background-color: #eee9c0;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
+    background-color: #eee9c0; /* 背景顏色 */
+    padding: 10px 20px;        /* 內間距 */
+    border-radius: 5px;        /* 圓角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 陰影 */
+    margin: 20px 0;            /* 外間距 */
+    font-family: 'Arial', sans-serif; /* 字體 */
+    display: flex;             /* 讓內部內容水平對齊 */
+    align-items: center;       /* 垂直置中 */
+    text-align: center; 
 }
 
 .latest-new {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333;
-    display: flex;
-    align-items: center;
+    font-size: 1.2em;          /* 字體大小 */
+    font-weight: bold;         /* 加粗字體 */
+    color: #333;               /* 文字顏色 */
+    display: flex;             /* 讓內容行內顯示 */
+    align-items: center;       /* 垂直置中 */
 }
 
 .latest-new a {
-    color: #d32f2f;
-    text-decoration: none;
-    margin-left: 5px;
+    color: #d32f2f;            /* 連結顏色 */
+    text-decoration: none;     /* 移除底線 */
+    margin-left: 5px;          /* 與前面文字間距 */
 }
 
 .latest-new a:hover {
-    color: #b71c1c;
-    text-decoration: underline;
-    transition: color 0.3s ease;
+    color: #b71c1c;            /* 滑鼠懸停時改變顏色 */
+    text-decoration: underline; /* 懸停時顯示底線 */
+    transition: color 0.3s ease; /* 顏色變化過渡 */
 }
+
+/* 添加一些簡單的動畫效果 */
+.latest-news {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 
 /* 动画效果 */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideInLeft {
-    from { transform: translateX(-100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 @keyframes zoomIn {
-    from { opacity: 0; transform: scale(0.3); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes shakeX {
-    from, to { transform: translateX(0); }
-    10%, 30%, 50%, 70% { transform: translateX(-10px); }
-    20%, 40%, 60%, 80% { transform: translateX(10px); }
+    from, to {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
 }
 
 /* 页脚样式 */
@@ -362,11 +385,10 @@ a.download-link:active {
     background-color: var(--active-color);
     transform: scale(0.98);
 }
-
 /* 语言选择器容器样式 */
 .language-selector {
     margin: 20px 0;
-    text-align: center;
+    text-align: center; /* 居中对齐 */
     font-family: 'Roboto', Arial, sans-serif;
     color: var(--text-color);
     background-color: #2e2e2e;
@@ -374,15 +396,17 @@ a.download-link:active {
     border-radius: 8px;
     box-shadow: var(--box-shadow);
     width: fit-content;
-    margin: 0 auto;
+    margin: 0 auto; /* 水平居中 */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* 标签样式 */
 .language-selector label {
     margin-right: 10px;
     font-weight: bold;
 }
 
+/* 下拉列表样式 */
 .language-selector select {
     padding: 10px 14px;
     font-size: 16px;
@@ -390,17 +414,19 @@ a.download-link:active {
     background-color: var(--background-color);
     border: 1px solid var(--secondary-color);
     border-radius: 6px;
-    appearance: none;
+    appearance: none; /* 隐藏默认的下拉箭头，适用于部分浏览器 */
     cursor: pointer;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
+/* 自定义下拉箭头 */
 .language-selector select:focus {
     outline: none;
     border-color: var(--accent-color);
     box-shadow: 0 0 8px var(--accent-color);
 }
 
+/* 悬停和活动状态 */
 .language-selector select:hover {
     background-color: #3a3a3a;
 }
@@ -409,25 +435,24 @@ a.download-link:active {
     background-color: var(--hover-color);
 }
 
+/* 选择器容器的悬停效果 */
 .language-selector:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
-
 .title-link {
     display: inline-flex;
-    align-items: center;
+    align-items: center; /* 垂直居中对齐 */
 }
-
-#title-png {
+ #title-png {
     width: 50px;
     height: auto;
     border-radius: 50%;
     border: 2px solid #000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
-    vertical-align: middle;
-    margin-right: 10px;
+              vertical-align: middle; /* 垂直对齐文字中部 */
+    margin-right: 10px; /* 图片和文字之间的间距 */
 }
 
 #title-png:hover {

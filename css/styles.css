@@ -10,7 +10,8 @@
     --gradient-end: #555; 
     --hover-color: #1e90ff; 
     --active-color: #1c86ee; 
-    
+}
+.light-mode{
     /* 浅色模式 */
     --light-primary-color: #f0f0f0; 
     --light-secondary-color: #ccc; 

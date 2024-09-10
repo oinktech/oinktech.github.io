@@ -13,15 +13,16 @@
 .light-mode {
     --primary-color: #f0f0f0; /* 主色：浅灰 */
     --secondary-color: #ccc; /* 次色：更浅的灰 */
-    --accent-color: #0078d4; /* 强调色：蓝色 */
-    --background-color: #ffffff; /* 背景色：白色 */
-    --text-color: #333333; /* 文字色：深灰 */
+    --accent-color: #00BFFF; /* 强调色：蓝色 */
+    --background-color: #e0e0e0; /* 背景色：浅灰色 */
+    --text-color: #333333; /* 文字色：深灰色 */
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     --gradient-start: #e0e0e0; /* 渐变起始色 */
     --gradient-end: #c0c0c0; /* 渐变结束色 */
     --hover-color: #005bb5; /* 悬停色 */
     --active-color: #004085; /* 点击色 */
 }
+
 /* 基本样式 */
 body {
     font-family: 'Roboto', Arial, sans-serif;

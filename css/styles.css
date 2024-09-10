@@ -10,20 +10,18 @@
     --hover-color: #1e90ff; /* 悬停色 */
     --active-color: #1c86ee; /* 点击色 */
 }
-
 .light-mode {
-    --primary-color: #333; /* 主色：深灰 */
-    --secondary-color: #666; /* 次色：浅灰 */
+    --primary-color: #f0f0f0; /* 主色：浅灰 */
+    --secondary-color: #ccc; /* 次色：更浅的灰 */
     --accent-color: #0078d4; /* 强调色：蓝色 */
-    --background-color: #f5f5f5; /* 背景色：浅灰 */
-    --text-color: #333; /* 文字色：深灰 */
+    --background-color: #ffffff; /* 背景色：白色 */
+    --text-color: #333333; /* 文字色：深灰 */
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    --gradient-start: #f5f5f5; /* 渐变起始色 */
-    --gradient-end: #e0e0e0; /* 渐变结束色 */
+    --gradient-start: #e0e0e0; /* 渐变起始色 */
+    --gradient-end: #c0c0c0; /* 渐变结束色 */
     --hover-color: #005bb5; /* 悬停色 */
     --active-color: #004085; /* 点击色 */
 }
-
 /* 基本样式 */
 body {
     font-family: 'Roboto', Arial, sans-serif;
@@ -110,46 +108,46 @@ main {
     padding: 40px 20px;
     max-width: 1200px;
     margin: auto;
-    background: var(--background-color);
+    background: linear-gradient(135deg, #2e2e2e, #1c1c1c);
     box-shadow: var(--box-shadow);
     border-radius: 12px;
     animation: fadeIn 1.5s ease;
 }
 
-/* 美化最新消息区域 */
+/* 美化最新消息區域 */
 .latest-news {
-    background-color: #f9f9f9; /* 背景颜色 */
-    padding: 10px 20px;        /* 内间距 */
-    border-radius: 5px;        /* 圆角 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影 */
-    margin: 20px 0;            /* 外间距 */
-    font-family: 'Arial', sans-serif; /* 字体 */
-    display: flex;             /* 让内部内容水平对齐 */
+    background-color: #eee9c0; /* 背景顏色 */
+    padding: 10px 20px;        /* 內間距 */
+    border-radius: 5px;        /* 圓角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 陰影 */
+    margin: 20px 0;            /* 外間距 */
+    font-family: 'Arial', sans-serif; /* 字體 */
+    display: flex;             /* 讓內部內容水平對齊 */
     align-items: center;       /* 垂直置中 */
-    text-align: center;
+    text-align: center; 
 }
 
 .latest-new {
-    font-size: 1.2em;          /* 字体大小 */
-    font-weight: bold;         /* 加粗字体 */
-    color: var(--text-color);  /* 文字颜色 */
-    display: flex;             /* 让内容行内显示 */
+    font-size: 1.2em;          /* 字體大小 */
+    font-weight: bold;         /* 加粗字體 */
+    color: #333;               /* 文字顏色 */
+    display: flex;             /* 讓內容行內顯示 */
     align-items: center;       /* 垂直置中 */
 }
 
 .latest-new a {
-    color: #d32f2f;            /* 链接颜色 */
-    text-decoration: none;     /* 移除底线 */
-    margin-left: 5px;          /* 与前面文字间距 */
+    color: #d32f2f;            /* 連結顏色 */
+    text-decoration: none;     /* 移除底線 */
+    margin-left: 5px;          /* 與前面文字間距 */
 }
 
 .latest-new a:hover {
-    color: #b71c1c;            /* 鼠标悬停时改变颜色 */
-    text-decoration: underline; /* 悬停时显示底线 */
-    transition: color 0.3s ease; /* 颜色变化过渡 */
+    color: #b71c1c;            /* 滑鼠懸停時改變顏色 */
+    text-decoration: underline; /* 懸停時顯示底線 */
+    transition: color 0.3s ease; /* 顏色變化過渡 */
 }
 
-/* 添加一些简单的动画效果 */
+/* 添加一些簡單的動畫效果 */
 .latest-news {
     animation: fadeIn 1s ease-in-out;
 }
@@ -157,6 +155,19 @@ main {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideInLeft {
@@ -222,7 +233,7 @@ footer {
     text-align: center;
     margin-bottom: 40px;
     padding: 60px 20px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 240, 240, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(50, 50, 50, 0.8) 100%);
     color: var(--text-color);
     border-radius: 12px;
     box-shadow: var(--box-shadow);
@@ -238,7 +249,7 @@ footer {
 .feature, .portfolio-item {
     margin: 20px 0;
     padding: 20px;
-    background-color: #ffffff; /* 背景颜色 */
+    background-color: #3a3a3a;
     border-radius: 12px;
     box-shadow: var(--box-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
@@ -246,8 +257,8 @@ footer {
 
 .feature:hover, .portfolio-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
-    background-color: #f5f5f5;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    background-color: #4a4a4a;
 }
 
 /* 表单样式 */
@@ -257,7 +268,7 @@ form {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #2e2e2e;
     border-radius: 12px;
     box-shadow: var(--box-shadow);
     animation: zoomIn 0.8s ease;
@@ -271,9 +282,9 @@ form label {
 form input, form textarea {
     padding: 14px;
     margin-top: 8px;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid #444;
     border-radius: 8px;
-    background: var(--background-color);
+    background: #333;
     color: var(--text-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -374,14 +385,13 @@ a.download-link:active {
     background-color: var(--active-color);
     transform: scale(0.98);
 }
-
 /* 语言选择器容器样式 */
 .language-selector {
     margin: 20px 0;
     text-align: center; /* 居中对齐 */
     font-family: 'Roboto', Arial, sans-serif;
     color: var(--text-color);
-    background-color: var(--background-color);
+    background-color: #2e2e2e;
     padding: 10px;
     border-radius: 8px;
     box-shadow: var(--box-shadow);
@@ -418,7 +428,7 @@ a.download-link:active {
 
 /* 悬停和活动状态 */
 .language-selector select:hover {
-    background-color: #e0e0e0;
+    background-color: #3a3a3a;
 }
 
 .language-selector select:active {
@@ -430,20 +440,18 @@ a.download-link:active {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
-
 .title-link {
     display: inline-flex;
     align-items: center; /* 垂直居中对齐 */
 }
-
-#title-png {
+ #title-png {
     width: 50px;
     height: auto;
     border-radius: 50%;
     border: 2px solid #000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
-    vertical-align: middle; /* 垂直对齐文字中部 */
+              vertical-align: middle; /* 垂直对齐文字中部 */
     margin-right: 10px; /* 图片和文字之间的间距 */
 }
 
@@ -451,3 +459,6 @@ a.download-link:active {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
+把所有顏色（背景 字體）都移到root和light-mode
+讓淺色模式背景為淺灰色，字是灰色或黑色
+讓所有標籤中的內容都能正確切換深淺色

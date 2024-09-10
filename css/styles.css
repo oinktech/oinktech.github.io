@@ -12,14 +12,14 @@
 }
 
 .light-mode {
-    --primary-color: #f0f0f0; /* 主色：浅灰 */
-    --secondary-color: #ccc; /* 次色：更浅的灰 */
+    --primary-color: #333; /* 主色：深灰 */
+    --secondary-color: #666; /* 次色：浅灰 */
     --accent-color: #0078d4; /* 强调色：蓝色 */
-    --background-color: #ffffff; /* 背景色：白色 */
-    --text-color: #333333; /* 文字色：深灰 */
+    --background-color: #f5f5f5; /* 背景色：浅灰 */
+    --text-color: #333; /* 文字色：深灰 */
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    --gradient-start: #e0e0e0; /* 渐变起始色 */
-    --gradient-end: #c0c0c0; /* 渐变结束色 */
+    --gradient-start: #f5f5f5; /* 渐变起始色 */
+    --gradient-end: #e0e0e0; /* 渐变结束色 */
     --hover-color: #005bb5; /* 悬停色 */
     --active-color: #004085; /* 点击色 */
 }
@@ -110,7 +110,7 @@ main {
     padding: 40px 20px;
     max-width: 1200px;
     margin: auto;
-    background: linear-gradient(135deg, var(--background-color), #1c1c1c);
+    background: var(--background-color);
     box-shadow: var(--box-shadow);
     border-radius: 12px;
     animation: fadeIn 1.5s ease;
@@ -118,7 +118,7 @@ main {
 
 /* 美化最新消息区域 */
 .latest-news {
-    background-color: #eee9c0; /* 背景颜色 */
+    background-color: #f9f9f9; /* 背景颜色 */
     padding: 10px 20px;        /* 内间距 */
     border-radius: 5px;        /* 圆角 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影 */
@@ -126,7 +126,7 @@ main {
     font-family: 'Arial', sans-serif; /* 字体 */
     display: flex;             /* 让内部内容水平对齐 */
     align-items: center;       /* 垂直置中 */
-    text-align: center; 
+    text-align: center;
 }
 
 .latest-new {
@@ -222,7 +222,7 @@ footer {
     text-align: center;
     margin-bottom: 40px;
     padding: 60px 20px;
-    background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(50, 50, 50, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 240, 240, 0.9) 100%);
     color: var(--text-color);
     border-radius: 12px;
     box-shadow: var(--box-shadow);
@@ -238,7 +238,7 @@ footer {
 .feature, .portfolio-item {
     margin: 20px 0;
     padding: 20px;
-    background-color: #3a3a3a;
+    background-color: #ffffff; /* 背景颜色 */
     border-radius: 12px;
     box-shadow: var(--box-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
@@ -246,8 +246,8 @@ footer {
 
 .feature:hover, .portfolio-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
-    background-color: #4a4a4a;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
 }
 
 /* 表单样式 */
@@ -257,7 +257,7 @@ form {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    background-color: #2e2e2e;
+    background-color: #ffffff;
     border-radius: 12px;
     box-shadow: var(--box-shadow);
     animation: zoomIn 0.8s ease;
@@ -418,7 +418,7 @@ a.download-link:active {
 
 /* 悬停和活动状态 */
 .language-selector select:hover {
-    background-color: #3a3a3a;
+    background-color: #e0e0e0;
 }
 
 .language-selector select:active {

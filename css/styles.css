@@ -459,6 +459,3 @@ a.download-link:active {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
-把所有顏色（背景 字體）都移到root和light-mode
-讓淺色模式背景為淺灰色，字是灰色或黑色
-讓所有標籤中的內容都能正確切換深淺色

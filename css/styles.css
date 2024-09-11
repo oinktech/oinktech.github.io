@@ -22,6 +22,10 @@
     --hover-color: #005bb5; /* 悬停色 */
     --active-color: #004085; /* 点击色 */
 }
+::selection {
+  background-color: #fff;
+  color: #0078b4;
+}
 /* 基本样式 */
 body {
     font-family: 'Roboto', Arial, sans-serif;

@@ -58,20 +58,57 @@ header:hover {
 }
 
 .language-button {
-    background: none;
+    position: fixed;
+    left: 10px; /* 左侧距离 */
+    top: 10px; /* 上侧距离 */
+    background: #007bff;
     border: none;
+    border-radius: 50%;
     cursor: pointer;
     font-size: 24px; /* 根据需要调整图标大小 */
+    color: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.3s;
+    z-index: 1000; /* 确保按钮在其他元素之上 */
+}
+
+.language-button:hover {
+    background: #0056b3;
+    transform: scale(1.1);
 }
 
 .language-selector {
-    margin-top: 10px;
+    position: fixed;
+    left: 10px; /* 与按钮对齐 */
+    top: 50px; /* 按钮下方 10px */
+    display: none;
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 4px;
     background-color: #fff;
-    position: absolute; /* 让选择框浮动在按钮上方 */
-    top: 100%; /* 让选择框位于按钮下方 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease-in-out;
+    z-index: 999; /* 确保选择框在按钮之下 */
 }
+
+.language-selector.show {
+    display: block;
+    opacity: 1;
+}
+
+.language-selector label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.language-selector select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 
 /* 导航菜单样式 */
 nav ul {

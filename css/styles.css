@@ -57,10 +57,13 @@ header:hover {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
 }
 
+
+
+/* 按钮样式 */
 .language-button {
     position: fixed;
-    left: 10px; /* 左侧距离 */
-    top: 10px; /* 上侧距离 */
+    left: 10px; /* 初始左侧距离 */
+    top: 10px; /* 初始上侧距离 */
     background: #007bff;
     border: none;
     border-radius: 50%;
@@ -69,15 +72,21 @@ header:hover {
     color: white;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s, transform 0.3s;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     z-index: 1000; /* 确保按钮在其他元素之上 */
 }
 
 .language-button:hover {
     background: #0056b3;
     transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+.language-button:active {
+    transform: scale(1);
+}
+
+/* 语言选择框样式 */
 .language-selector {
     position: fixed;
     left: 10px; /* 与按钮对齐 */
@@ -88,18 +97,25 @@ header:hover {
     border-radius: 4px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     z-index: 999; /* 确保选择框在按钮之下 */
 }
 
 .language-selector.show {
     display: block;
     opacity: 1;
+    transform: translateY(0);
+}
+
+.language-selector.hide {
+    opacity: 0;
+    transform: translateY(-10px);
 }
 
 .language-selector label {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .language-selector select {
@@ -108,6 +124,9 @@ header:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+
+
 
 
 /* 导航菜单样式 */

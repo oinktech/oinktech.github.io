@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 创建按钮元素
-    const languageButton = document.createElement('button');
-    languageButton.id = 'language-button';
-    languageButton.textContent = 'Select Language';
+    // 创建一个按钮元素
+    const button = document.createElement('button');
+    button.className = 'language-button';
+    button.innerHTML = `<box-icon name='globe'></box-icon>`; // 使用 Boxicons 图标
 
-    // 创建语言选择框
-    const languageSelectorModal = document.createElement('div');
-    languageSelectorModal.id = 'language-selector-modal';
-    languageSelectorModal.style.display = 'none';
-    languageSelectorModal.innerHTML = `
+    // 创建一个语言选择 div 元素
+    const languageSelectorDiv = document.createElement('div');
+    languageSelectorDiv.className = 'language-selector';
+    languageSelectorDiv.style.display = 'none'; // 初始隐藏
+
+    // 设置语言选择框的 HTML 内容
+    languageSelectorDiv.innerHTML = `
         <label for="language-selector" data-key="selectLanguage">Select language:</label>
         <select id="language-selector" onchange="changeLanguage()">
             <option value="zh-Hant">繁體中文</option>
@@ -20,28 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
         </select>
     `;
 
+    // 处理按钮点击事件
+    button.addEventListener('click', () => {
+        if (languageSelectorDiv.style.display === 'none') {
+            languageSelectorDiv.style.display = 'block';
+        } else {
+            languageSelectorDiv.style.display = 'none';
+        }
+    });
+
     // 查找 header 元素
     const header = document.querySelector('header');
-    
-    // 插入按钮和语言选择框到 header 的底部
+
+    // 如果 header 元素存在，将按钮和语言选择 div 插入到 header 的底部
     if (header) {
-        header.appendChild(languageButton);
-        header.appendChild(languageSelectorModal);
+        header.appendChild(button); // 添加按钮
+        header.appendChild(languageSelectorDiv); // 添加语言选择框
     }
-
-    // 切换语言选择框的显示和隐藏
-    languageButton.addEventListener('click', () => {
-        if (languageSelectorModal.style.display === 'none') {
-            languageSelectorModal.style.display = 'block';
-        } else {
-            languageSelectorModal.style.display = 'none';
-        }
-    });
-
-    // 关闭语言选择框（点击选择框外部区域）
-    window.addEventListener('click', (event) => {
-        if (event.target !== languageButton && event.target !== languageSelectorModal && !languageSelectorModal.contains(event.target)) {
-            languageSelectorModal.style.display = 'none';
-        }
-    });
 });

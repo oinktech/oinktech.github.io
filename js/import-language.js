@@ -25,21 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // 处理按钮点击事件
     button.addEventListener('click', (event) => {
         event.stopPropagation(); // 防止点击事件冒泡到 document
-        if (languageSelectorDiv.style.display === 'none') {
-            languageSelectorDiv.style.display = 'block';
-            languageSelectorDiv.classList.add('show');
-        } else {
-            languageSelectorDiv.style.display = 'none';
-            languageSelectorDiv.classList.remove('show');
-        }
+        languageSelectorDiv.style.display = languageSelectorDiv.style.display === 'none' ? 'block' : 'none';
     });
 
     // 处理点击其他位置时隐藏语言选择框
-    document.addEventListener('click', () => {
-        if (languageSelectorDiv.style.display === 'block') {
+    document.addEventListener('click', (event) => {
+        if (languageSelectorDiv.style.display === 'block' && !languageSelectorDiv.contains(event.target) && event.target !== button) {
             languageSelectorDiv.style.display = 'none';
-            languageSelectorDiv.classList.remove('show');
         }
+    });
+
+    // 拖动功能
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    button.addEventListener('mousedown', (event) => {
+        isDragging = true;
+        offsetX = event.clientX - button.getBoundingClientRect().left;
+        offsetY = event.clientY - button.getBoundingClientRect().top;
+    });
+
+    document.addEventListener('mousemove', (event) => {
+        if (isDragging) {
+            button.style.left = `${event.clientX - offsetX}px`;
+            button.style.top = `${event.clientY - offsetY}px`;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
     });
 
     // 将按钮和语言选择框添加到 body

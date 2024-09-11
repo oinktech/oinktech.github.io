@@ -23,20 +23,26 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     // 处理按钮点击事件
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation(); // 防止点击事件冒泡到 document
         if (languageSelectorDiv.style.display === 'none') {
             languageSelectorDiv.style.display = 'block';
+            languageSelectorDiv.classList.add('show');
         } else {
             languageSelectorDiv.style.display = 'none';
+            languageSelectorDiv.classList.remove('show');
         }
     });
 
-    // 查找 header 元素
-    const header = document.querySelector('header');
+    // 处理点击其他位置时隐藏语言选择框
+    document.addEventListener('click', () => {
+        if (languageSelectorDiv.style.display === 'block') {
+            languageSelectorDiv.style.display = 'none';
+            languageSelectorDiv.classList.remove('show');
+        }
+    });
 
-    // 如果 header 元素存在，将按钮和语言选择 div 插入到 header 的底部
-    if (header) {
-        header.appendChild(button); // 添加按钮
-        header.appendChild(languageSelectorDiv); // 添加语言选择框
-    }
+    // 将按钮和语言选择框添加到 body
+    document.body.appendChild(button); // 添加按钮
+    document.body.appendChild(languageSelectorDiv); // 添加语言选择框
 });

@@ -1,4 +1,72 @@
-// 加载语言包
+// 打开数据库
+const DB_NAME = 'languageDB';
+const DB_VERSION = 1;
+
+let db;
+
+function openDB() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        request.onupgradeneeded = function(event) {
+            db = event.target.result;
+            db.createObjectStore('languages', { keyPath: 'lang' });
+        };
+        request.onsuccess = function(event) {
+            db = event.target.result;
+            resolve();
+        };
+        request.onerror = function(event) {
+            reject(event.target.error);
+        };
+    });
+}
+
+// 从 IndexedDB 获取语言数据
+function getLanguageFromDB(lang) {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(['languages'], 'readonly');
+        const store = transaction.objectStore('languages');
+        const request = store.get(lang);
+        request.onsuccess = function(event) {
+            resolve(event.target.result);
+        };
+        request.onerror = function(event) {
+            reject(event.target.error);
+        };
+    });
+}
+
+// 保存语言数据到 IndexedDB
+function saveLanguageToDB(lang, data) {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction(['languages'], 'readwrite');
+        const store = transaction.objectStore('languages');
+        const request = store.put({ lang, data });
+        request.onsuccess = function() {
+            resolve();
+        };
+        request.onerror = function(event) {
+            reject(event.target.error);
+        };
+    });
+}
+
+// 根据位置获取语言
+function getLanguageFromLocation() {
+    return new Promise((resolve) => {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                // 使用位置检测语言，暂时简单返回英文作为示例
+                resolve('en');
+            },
+            () => {
+                resolve('en'); // 默认返回英文
+            }
+        );
+    });
+}
+
+// 加载语言数据
 function loadLanguage(lang) {
     document.getElementById('loading-indicator').style.display = 'block';
 
@@ -6,7 +74,6 @@ function loadLanguage(lang) {
         .then(result => {
             const data = result ? result.data : null;
             if (data) {
-                // 检查语言包版本
                 return fetch(`./lang/${lang}.json`)
                     .then(response => {
                         if (!response.ok) {
@@ -16,16 +83,13 @@ function loadLanguage(lang) {
                     })
                     .then(freshData => {
                         if (freshData.version && freshData.version !== data.version) {
-                            // 语言包有更新，保存最新版本
                             saveLanguageToDB(lang, freshData);
                             applyLanguageData(freshData);
                         } else {
-                            // 使用缓存的语言包
                             applyLanguageData(data);
                         }
                     });
             } else {
-                // 从服务器加载语言包
                 return fetch(`./lang/${lang}.json`)
                     .then(response => {
                         if (!response.ok) {
@@ -34,7 +98,6 @@ function loadLanguage(lang) {
                         return response.json();
                     })
                     .then(data => {
-                        // 存储语言包到 IndexedDB
                         saveLanguageToDB(lang, data);
                         applyLanguageData(data);
                     });
@@ -42,7 +105,6 @@ function loadLanguage(lang) {
         })
         .catch(error => {
             console.error('Error loading language file:', error);
-            // 使用默认语言
             loadLanguage('en');
         })
         .finally(() => {
@@ -62,21 +124,20 @@ function applyLanguageData(data) {
         }
     });
 
-    const rtlLanguages = ['ar', 'he', 'fa']; // 添加支持 RTL 语言
+    const rtlLanguages = ['ar', 'he', 'fa']; // 支持 RTL 语言
     if (rtlLanguages.includes(document.documentElement.lang)) {
         document.documentElement.setAttribute('dir', 'rtl');
     } else {
         document.documentElement.removeAttribute('dir');
     }
 
-    // 提示语言切换成功
     alert('Language changed successfully!');
 }
 
 // 处理语言选择更改
 function changeLanguage() {
     const lang = document.getElementById('language-selector').value;
-    document.documentElement.lang = lang; // 更新 HTML lang 属性
+    document.documentElement.lang = lang;
     loadLanguage(lang);
     localStorage.setItem('preferredLanguage', lang);
 }
@@ -85,14 +146,11 @@ function changeLanguage() {
 function initializeLanguage() {
     getLanguageFromLocation()
         .then(locationLang => {
-            // 首先尝试加载位置语言
             return getLanguageFromDB(locationLang)
                 .then(result => {
                     if (result) {
-                        // 如果从 IndexedDB 中获取到位置语言，则应用它
                         return locationLang;
                     } else {
-                        // 位置语言不可用，则回退到英文
                         return 'en';
                     }
                 });
@@ -104,14 +162,18 @@ function initializeLanguage() {
         })
         .catch(error => {
             console.error('Error initializing language:', error);
-            // 处理初始化语言时的错误
             loadLanguage('en');
         });
 }
 
 // 初始化语言和事件监听
 window.onload = function() {
-    initializeLanguage();
-
-    document.getElementById('language-selector').addEventListener('change', changeLanguage);
-}
+    openDB()
+        .then(() => {
+            initializeLanguage();
+            document.getElementById('language-selector').addEventListener('change', changeLanguage);
+        })
+        .catch(error => {
+            console.error('Error opening database:', error);
+        });
+};

@@ -57,6 +57,22 @@ header:hover {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
 }
 
+.language-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; /* 根据需要调整图标大小 */
+}
+
+.language-selector {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    position: absolute; /* 让选择框浮动在按钮上方 */
+    top: 100%; /* 让选择框位于按钮下方 */
+}
+
 /* 导航菜单样式 */
 nav ul {
     list-style: none;

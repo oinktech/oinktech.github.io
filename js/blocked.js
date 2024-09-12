@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
         function showPopup(message) {
             try {
                 const popupMessage = popup.querySelector('p');
+                if (!popupMessage) {
+                    throw new Error('找不到彈出框的內容元素');
+                }
                 popupMessage.textContent = message;
                 popup.classList.add('show');
                 overlay.classList.add('show');

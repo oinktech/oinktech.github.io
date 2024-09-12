@@ -2,13 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. 添加動態CSS
     const style = document.createElement('style');
     style.innerHTML = `
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
+        
         #virtualPopup {
             display: none;
             position: fixed;

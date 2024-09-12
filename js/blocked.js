@@ -1,64 +1,136 @@
-(function() {
-    function showError(message) {
-        alert(`錯誤: ${message}`);
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. 動態添加CSS樣式
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* 防止水平滾動條 */
+        }
+
+        #virtualPopup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(145deg, #333333, #4a4a4a); /* 更深的灰色漸變 */
+            border: 2px solid #1c1c1c; /* 邊框更深色 */
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            border-radius: 12px;
+            color: #e0e0e0; /* 淺灰色文字 */
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.9); /* 預設縮小 */
+            transition: opacity 0.4s ease, transform 0.4s ease; /* 平滑顯示和放大動畫 */
+        }
+
+        #virtualPopup.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1); /* 顯示為正常大小 */
+        }
+
+        #virtualPopup h3 {
+            margin: 0;
+            padding-bottom: 15px;
+            font-size: 22px;
+            color: #00aaff; /* 天藍色強調色 */
+        }
+
+        #virtualPopup p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        #closePopup {
+            margin-top: 20px;
+            padding: 12px 24px;
+            border: none;
+            background-color: #00aaff; /* 天藍色按鈕 */
+            color: white;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s; /* 背景顏色和縮放動畫 */
+        }
+
+        #closePopup:hover {
+            background-color: #0088cc; /* 按鈕 hover 狀態 */
+        }
+
+        #closePopup:active {
+            transform: scale(0.98); /* 按鈕點擊效果 */
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        #overlay.show {
+            display: block;
+            opacity: 1;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // 2. 創建虛擬彈出框的 HTML
+    const overlay = document.createElement('div');
+    overlay.id = 'overlay';
+    document.body.appendChild(overlay);
+
+    const popup = document.createElement('div');
+    popup.id = 'virtualPopup';
+    popup.innerHTML = `
+        <h3>警告</h3>
+        <p>檢視原始碼功能已被禁用。</p>
+        <button id="closePopup">關閉</button>
+    `;
+    document.body.appendChild(popup);
+
+    // 3. 顯示虛擬彈出框
+    function showPopup(message) {
+        const popupMessage = popup.querySelector('p');
+        popupMessage.textContent = message;
+        popup.classList.add('show');
+        overlay.classList.add('show');
     }
 
-    function addVirtualPopup() {
-        const popup = document.createElement('div');
-        popup.id = 'virtual-popup';
-        popup.style.position = 'fixed';
-        popup.style.top = '50%';
-        popup.style.left = '50%';
-        popup.style.transform = 'translate(-50%, -50%)';
-        popup.style.width = '80%';
-        popup.style.maxWidth = '600px';
-        popup.style.padding = '20px';
-        popup.style.backgroundColor = '#333';
-        popup.style.color = '#f0f0f0';
-        popup.style.border = '2px solid #00bfff';
-        popup.style.borderRadius = '10px';
-        popup.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.5)';
-        popup.style.zIndex = '1000';
-        popup.style.display = 'none';
-        popup.style.fontFamily = 'Arial, sans-serif';
-        popup.style.fontSize = '16px';
-
-        const closeButton = document.createElement('button');
-        closeButton.textContent = '關閉';
-        closeButton.style.position = 'absolute';
-        closeButton.style.top = '10px';
-        closeButton.style.right = '10px';
-        closeButton.style.backgroundColor = '#00bfff';
-        closeButton.style.color = '#fff';
-        closeButton.style.border = 'none';
-        closeButton.style.padding = '5px 10px';
-        closeButton.style.borderRadius = '5px';
-        closeButton.style.cursor = 'pointer';
-        closeButton.onclick = function() {
-            popup.style.display = 'none';
-        };
-
-        popup.appendChild(closeButton);
-        document.body.appendChild(popup);
-
-        return popup;
+    // 4. 隱藏虛擬彈出框
+    function hidePopup() {
+        popup.classList.remove('show');
+        overlay.classList.remove('show');
     }
 
-    function displayPopup(message) {
-        const popup = document.getElementById('virtual-popup') || addVirtualPopup();
-        popup.textContent = message;
-        popup.style.display = 'block';
-    }
+    // 5. 綁定關閉按鈕的事件
+    document.getElementById('closePopup').addEventListener('click', hidePopup);
 
-    window.addEventListener('keydown', function(event) {
-        if (event.ctrlKey && event.key === 'u') {
-            event.preventDefault();
-            displayPopup('網站源碼被阻擋。');
+    // 6. 禁用 Ctrl+U 和 F12
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'u') {
+            e.preventDefault();
+            showPopup("檢視原始碼功能已被禁用");
+        }
+        
+        if (e.key === 'F12') {
+            e.preventDefault();
+            showPopup("開發者工具已被禁用");
         }
     });
 
-    window.addEventListener('error', function(event) {
-        showError(`錯誤訊息: ${event.message}\n於 ${event.filename} 行 ${event.lineno}`);
-        event.preventDefault();
+    // 7. 禁用右鍵
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        showPopup("右鍵功能已被禁用");
     });
-})();
+});

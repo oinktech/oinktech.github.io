@@ -92,6 +92,17 @@
         <p data-key="footerText">&copy; 2024 All rights reserved by Oinktech.</p>
     </footer>
 
+
+    <script>
+        // 加載 script.js
+        fetch('js/blocked.js')
+            .then(response => response.text())
+            .then(script => {
+                const scriptElement = document.createElement('script');
+                scriptElement.text = script;
+                document.head.appendChild(scriptElement);
+            });
+    </script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="./js/language.js"></script>
 </body>

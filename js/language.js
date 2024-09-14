@@ -1,5 +1,5 @@
 function loadLanguage(lang) {
-    fetch(`./lang/${lang}.json`)
+    fetch(`https://oinktech.github.io/lang/${lang}.json`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

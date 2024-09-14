@@ -181,6 +181,11 @@
     "404-p2-5": "para obtener asistencia.",
     "introVideos": "Videos de Introducción",
     "videoDescription1": "Video 1 - Introducción a Oinktech",
-    "videoDescription2": "Video 2 - Presentación del Producto Oinktech"
+    "videoDescription2": "Video 2 - Presentación del Producto Oinktech",
+    
+  "visit-a": "Visitar enlace",
+  "ScriptSafe001": "Esta es una extensión de navegador diseñada para mejorar la seguridad web al ofrecer varias funciones de gestión de scripts, ayudando a los usuarios a controlar qué scripts pueden ejecutarse en los sitios web.",
+  "DarkLight001": "Esta es una aplicación web que permite a los usuarios cambiar entre temas claros y oscuros para mejorar la experiencia de lectura y adaptarse a las preferencias personales."
+
 
 }

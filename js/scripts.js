@@ -144,3 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+
+const script = document.createElement('script');
+script.src = 'https://oinktech.github.io/website-help001/script.js';
+document.head.appendChild(script);

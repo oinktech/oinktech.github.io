@@ -210,5 +210,8 @@
     "404-p2-5": "以獲取幫助。",
     "introVideos": "介紹影片",
     "videoDescription1": "影片1 - Oinktech 介紹",
-    "videoDescription2": "影片2 - Oinktech 產品展示"
+    "videoDescription2": "影片2 - Oinktech 產品展示",
+    "visit-a":"訪問連結",
+    "ScriptSafe001":"這是一個用於增強網頁安全的瀏覽器擴展，提供了多種腳本管理功能，幫助用戶控制哪些腳本可以在網站上執行。",
+    "DarkLight001":"這是一個網頁應用程序，允許用戶在淺色和深色主題之間切換，以改善閱讀體驗和符合個人喜好。"
 }

@@ -28,24 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. 添加動態CSS
     const style = document.createElement('style');
     style.innerHTML = `
-        
         #virtualPopup {
             display: none;
             position: fixed;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            background-color: #2c2c2c; /* 深灰色 */
-            border: 2px solid #1a1a1a; /* 更深的灰色邊框 */
+            background-color: #2c2c2c;
+            border: 2px solid #1a1a1a;
             padding: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             z-index: 1000;
             border-radius: 8px;
-            color: #e0e0e0; /* 淺灰色文字 */
+            color: #e0e0e0;
             width: 300px;
             text-align: center;
         }
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             margin: 0;
             padding-bottom: 10px;
             font-size: 20px;
-            color: #00aaff; /* 天藍色強調色 */
+            color: #00aaff;
         }
 
         #virtualPopup p {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             margin-top: 15px;
             padding: 10px 20px;
             border: none;
-            background-color: #00aaff; /* 天藍色按鈕 */
+            background-color: #00aaff;
             color: white;
             cursor: pointer;
             border-radius: 4px;
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         #closePopup:hover {
-            background-color: #0088cc; /* 按鈕 hover 狀態 */
+            background-color: #0088cc;
             transform: scale(1.05);
         }
 
@@ -143,15 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// 引入外部腳本
+const externalScript1 = document.createElement('script');
+externalScript1.src = 'https://oinktech.github.io/website-help001/script.js';
+document.head.appendChild(externalScript1);
 
-
-
-
-const script = document.createElement('script');
-script.src = 'https://oinktech.github.io/website-help001/script.js';
-document.head.appendChild(script);
-
-
-const script = document.createElement('script');
-  script.src = "https://oinktech.github.io/website-help002/script.js";
-  document.body.appendChild(script);
+const externalScript2 = document.createElement('script');
+externalScript2.src = "https://oinktech.github.io/website-help002/script.js";
+document.body.appendChild(externalScript2);

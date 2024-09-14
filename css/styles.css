@@ -87,7 +87,60 @@ nav ul li a {
     border-radius: 6px;
     transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 }
+.latest-news {
+    background-color: #eee9c0; /* 背景顏色 */
+    padding: 10px 20px;        /* 內間距 */
+    border-radius: 5px;        /* 圓角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 陰影 */
+    margin: 20px 0;            /* 外間距 */
+    font-family: 'Arial', sans-serif; /* 字體 */
+    display: flex;             /* 讓內部內容水平對齊 */
+    align-items: center;       /* 垂直置中 */
+    text-align: center; 
+}
 
+.latest-new {
+    font-size: 1.2em;          /* 字體大小 */
+    font-weight: bold;         /* 加粗字體 */
+    color: #333;               /* 文字顏色 */
+    display: flex;             /* 讓內容行內顯示 */
+    align-items: center;       /* 垂直置中 */
+}
+
+.latest-new a {
+    color: #d32f2f;            /* 連結顏色 */
+    text-decoration: none;     /* 移除底線 */
+    margin-left: 5px;          /* 與前面文字間距 */
+}
+
+.latest-new a:hover {
+    color: #b71c1c;            /* 滑鼠懸停時改變顏色 */
+    text-decoration: underline; /* 懸停時顯示底線 */
+    transition: color 0.3s ease; /* 顏色變化過渡 */
+}
+
+/* 添加一些簡單的動畫效果 */
+.latest-news {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 nav ul li a::after {
     content: '';
     display: block;

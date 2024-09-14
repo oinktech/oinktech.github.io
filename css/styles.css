@@ -179,7 +179,7 @@ main {
     text-align: center;
     margin-bottom: 40px;
     padding: 60px 20px;
-    background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(50, 50, 50, 0.8) 100%);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: var(--text-color);
     border-radius: 12px;
     box-shadow: var(--box-shadow);

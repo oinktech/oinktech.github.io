@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/scripts.js"></script>
+    <script src="js/blocked.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1214407462266162" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://oinktech.github.io/Switch-between-light-and-dark-colors/theme-toggle-version1.js" defer></script>
@@ -15,16 +15,7 @@
             display: inline-flex;
             align-items: center;
         }
-        .hero video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-        
+
         #title-png {
             width: 50px;
             height: auto;
@@ -40,21 +31,55 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
 
-        /* 独立视频部分 */
-        .videos {
+        .video-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f4f4f4;
+        }
+
+        .video-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        .videos video {
+        .video-item {
+            width: 320px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-item video {
             width: 100%;
-            max-width: 600px;
-            margin-bottom: 20px;
+            height: auto;
+            border-radius: 10px;
         }
 
-        
+        .video-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-item p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .video-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-item {
+                width: 100%;
+                max-width: 480px;
+            }
+        }
     </style>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -86,7 +111,6 @@
             <h2 data-key="welcome">歡迎來到 Oinktech ！</h2>
             <p data-key="heroText">我們是 Oinktech ，一個致力於提供最先進技術解決方案的創新公司...</p>
         </section>
-
         <section class="features">
             <div class="feature animate__animated animate__fadeInUp">
                 <h3 data-key="webDevelopment">網頁開發</h3>
@@ -101,20 +125,27 @@
                 <p data-key="dataAnalysisText">提供深入的數據分析和報告，幫助您做出明智的決策。</p>
             </div>
         </section>
-
-        <!-- 视频部分 -->
-        <section class="videos">
-            <video controls autoplay muted loop>
-                <source src="https://oinktech.github.io/videos/videos002.mp4" type="video/mp4">
-                您的瀏覽器不支持視頻標籤。
-            </video>
-            <video controls autoplay muted loop>
-                <source src="https://oinktech.github.io/videos/videos001.mp4" type="video/mp4">
-                您的瀏覽器不支持視頻標籤。
-            </video>
+        
+        <section class="video-section">
+            <h2 data-key="introVideos">介紹影片</h2>
+            <div class="video-container">
+                <div class="video-item">
+                    <video controls poster="images/video1-poster.jpg">
+                        <source src="videos/video1.mp4" type="video/mp4">
+                        您的瀏覽器不支援影片播放。
+                    </video>
+                    <p data-key="videoDescription1">影片1 - Oinktech 介紹</p>
+                </div>
+                <div class="video-item">
+                    <video controls poster="images/video2-poster.jpg">
+                        <source src="videos/video2.mp4" type="video/mp4">
+                        您的瀏覽器不支援影片播放。
+                    </video>
+                    <p data-key="videoDescription2">影片2 - Oinktech 產品展示</p>
+                </div>
+            </div>
         </section>
-
-        <!-- 语言选择器 -->
+        
         <div class="language-selector">
             <label for="language-selector" data-key="selectLanguage">Select language:</label>
             <select id="language-selector" onchange="changeLanguage()">
@@ -127,7 +158,7 @@
             </select>
         </div>
     </main>
-
+    
     <footer>
         <p data-key="footerText">&copy; 2024 All rights reserved by Oinktech.</p>
     </footer>

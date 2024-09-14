@@ -180,3 +180,32 @@ document.addEventListener('DOMContentLoaded', () => {
         showPopup("右鍵功能已被禁用");
     });
 });
+// 滚动效果
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        scrollRevealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            if (elementTop < windowHeight * 0.8) {
+                element.classList.add('is-visible');
+            } else {
+                element.classList.remove('is-visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // 初次加载时检查是否需要显示
+});
+
+// 侧边栏滑入效果
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+    });
+});

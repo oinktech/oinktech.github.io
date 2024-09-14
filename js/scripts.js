@@ -28,44 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-(function() {
-    var sc_project = 13034834;
-    var sc_invisible = 0;
-    var sc_security = "bd33db8e";
-    var scJsHost = "https://";
-    
-    // 動態加載 Statcounter JavaScript 文件
-    var scriptElement = document.createElement('script');
-    scriptElement.type = 'text/javascript';
-    scriptElement.src = scJsHost + 'statcounter.com/counter/counter.js';
-    scriptElement.async = true;
-    
-    // 創建一個 div 元素，包含 noscript 內容
-    var noscriptElement = document.createElement('noscript');
-    var divElement = document.createElement('div');
-    divElement.className = 'statcounter';
-    var aElement = document.createElement('a');
-    aElement.href = 'https://statcounter.com/';
-    aElement.target = '_blank';
-    aElement.title = 'real time web analytics';
-    var imgElement = document.createElement('img');
-    imgElement.className = 'statcounter';
-    imgElement.src = 'https://c.statcounter.com/13034834/0/bd33db8e/0/';
-    imgElement.alt = 'real time web analytics';
-    imgElement.referrerPolicy = 'no-referrer-when-downgrade';
-    aElement.appendChild(imgElement);
-    divElement.appendChild(aElement);
-    noscriptElement.appendChild(divElement);
-    
-    // 查找所有頁面的 footer，並添加 Statcounter 代碼
-    document.querySelectorAll('footer').forEach(function(footer) {
-        var statcounterContainer = document.createElement('div');
-        statcounterContainer.className = 'statcounter-container';
-        footer.appendChild(statcounterContainer);
-        statcounterContainer.appendChild(scriptElement);
-        statcounterContainer.appendChild(noscriptElement);
-    });
-})();
 document.addEventListener('DOMContentLoaded', () => {
     // 1. 添加動態CSS
     const style = document.createElement('style');
@@ -180,32 +142,5 @@ document.addEventListener('DOMContentLoaded', () => {
         showPopup("右鍵功能已被禁用");
     });
 });
-// 滚动效果
-document.addEventListener('DOMContentLoaded', () => {
-    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
 
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        scrollRevealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            if (elementTop < windowHeight * 0.8) {
-                element.classList.add('is-visible');
-            } else {
-                element.classList.remove('is-visible');
-            }
-        });
-    };
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // 初次加载时检查是否需要显示
-});
-
-// 侧边栏滑入效果
-document.addEventListener('DOMContentLoaded', () => {
-    const sidebarToggle = document.querySelector('.sidebar-toggle');
-    const sidebar = document.querySelector('.sidebar');
-
-    sidebarToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-    });
-});

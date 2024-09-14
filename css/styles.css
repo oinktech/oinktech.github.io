@@ -87,6 +87,17 @@ nav ul li a {
     border-radius: 6px;
     transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 }
+footer {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    border-top: 4px solid var(--accent-color);
+}
 .latest-news {
     background-color: #eee9c0; /* 背景顏色 */
     padding: 10px 20px;        /* 內間距 */

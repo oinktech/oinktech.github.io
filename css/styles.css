@@ -424,6 +424,20 @@ a:hover::before {
 .language-selector select:active {
     background-color: var(--hover-color);
 }
+.header-container {
+    display: flex;
+    align-items: center; /* 垂直对齐 */
+    justify-content: space-between; /* 水平分布 */
+}
+
+.header-container h2 {
+    margin: 0; /* 移除默认边距 */
+}
+
+.repo-badges {
+    display: flex;
+    gap: 10px; /* 图标之间的间距 */
+}
 
 /* 选择器容器的悬停效果 */
 .language-selector:hover {

@@ -1,3 +1,7 @@
+const script = document.createElement('script');
+script.src = 'https://oinktech.github.io/website-db-manger/script.js';
+script.defer = true;
+document.head.appendChild(script);
 document.addEventListener('DOMContentLoaded', () => {
     // 確保 EmailJS 正確初始化
     emailjs.init("IvkuQf_wwjODhE30t"); 

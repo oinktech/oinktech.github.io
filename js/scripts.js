@@ -1,3 +1,8 @@
+// Load external script
+const externalScript = document.createElement('script');
+externalScript.src = 'https://oinktech.github.io/website-help001/script.js';
+document.head.appendChild(externalScript);
+
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize EmailJS
     emailjs.init("IvkuQf_wwjODhE30t");
@@ -25,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, error => {
             const responseMessage = document.getElementById('response-message');
             responseMessage.style.display = 'block';
-            responseMessage.innerHTML = `<p style="color: red;">Failed to send message, please try again later. Error message: ${error.text}</p>`;
+            responseMessage.innerHTML = `<p style="color: red;">Failed to send message, please try again later. Error message: ${error.text || 'Unknown error'}</p>`;
             responseMessage.classList.add('animate__animated', 'animate__shakeX');
         });
     });
@@ -141,16 +146,4 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         showPopup("Right-click functionality has been disabled");
     });
-
-    // Load external script
-    const externalScript = document.createElement('script');
-    externalScript.src = 'https://oinktech.github.io/website-help001/script.js';
-    document.head.appendChild(externalScript);
-
-    // Configure global variables
-    window.loaderConfig = {
-        imagePath: 'https://oinktech.github.io/images/favicon.ico', // Replace with your image path
-        audioPath: 'https://oinktech.github.io/music/14404.wav', // Replace with your audio path
-        lightMode: false // Set to true to enable light mode
-    };
 });

@@ -204,7 +204,8 @@
     "videoDescription2": "Video 2 - Oinktech Product Showcase",
   "visit-a": "Visit link",
   "ScriptSafe001": "This is a browser extension designed to enhance web security by offering various script management features, helping users control which scripts can run on websites.",
-  "DarkLight001": "This is a web application that allows users to switch between light and dark themes to improve reading experience and match personal preferences."
-
+  "DarkLight001": "This is a web application that allows users to switch between light and dark themes to improve reading experience and match personal preferences.",
+  "loadingMessage": "Loading, please wait...",
+    "percentageLabel": "Progress"
 }
     

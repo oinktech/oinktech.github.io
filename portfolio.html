@@ -8,6 +8,39 @@
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <script src="https://oinktech.github.io/Switch-between-light-and-dark-colors/theme-toggle-version1.js" defer></script>
     <link rel="stylesheet" href="./css/styles.css">
+    <style>
+          /* 美化搜尋框 */
+.search-input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* 當搜尋框聚焦時的效果 */
+.search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+/* 搜尋框的提示顏色 */
+.search-input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* 美化提示選單 */
+datalist option {
+    font-size: 16px;
+    padding: 5px;
+}
+
+</style>
 </head>
 <body>
     <header>

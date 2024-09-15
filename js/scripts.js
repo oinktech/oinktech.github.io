@@ -1,19 +1,4 @@
-// Load external script
-const externalScript = document.createElement('script');
-externalScript.src = 'https://oinktech.github.io/website-help001/script.js';
-document.head.appendChild(externalScript);
 
-window.loaderConfig = {
-        imagePath: 'https://oinktech.github.io/images/404.png', // 替换为您的图片路径
-        audioPath: 'https://oinktech.github.io/music/14404.wav', // 替换为您的音频路径
-        lightMode: false, // 设置为 true 以启用亮色模式
-        message: 'Loading...',
-        showImage: true,
-    onComplete: function() {
-        console.log('Loading complete!');
-        
-    }
-    };
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize EmailJS

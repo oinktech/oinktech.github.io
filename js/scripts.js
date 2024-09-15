@@ -11,7 +11,6 @@ window.loaderConfig = {
         showImage: true,
     onComplete: function() {
         console.log('Loading complete!');
-        alert('The content is now loaded.');
         
     }
     };

@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize EmailJS
     emailjs.init("IvkuQf_wwjODhE30t");
 
+    // Form submission handling
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -17,18 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('contact-form').reset();
             const responseMessage = document.getElementById('response-message');
             responseMessage.style.display = 'block';
-            responseMessage.innerHTML = '<p style="color: green;">訊息已成功發送！我們將會盡快與您聯繫。</p>';
+            responseMessage.innerHTML = '<p style="color: green;">Your message has been sent successfully! We will get in touch with you as soon as possible.</p>';
             responseMessage.classList.add('animate__animated', 'animate__fadeInUp');
             document.getElementById('contact-form').style.display = 'none';
         }, error => {
             const responseMessage = document.getElementById('response-message');
             responseMessage.style.display = 'block';
-            responseMessage.innerHTML = `<p style="color: red;">訊息發送失敗，請稍後再試。錯誤訊息：${error.text}</p>`;
+            responseMessage.innerHTML = `<p style="color: red;">Failed to send message, please try again later. Error message: ${error.text}</p>`;
             responseMessage.classList.add('animate__animated', 'animate__shakeX');
         });
     });
 
-    // 添加動態CSS
+    // Dynamically add CSS
     const style = document.createElement('style');
     style.innerHTML = `
         #virtualPopup {
@@ -37,13 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            background-color: #2c2c2c; /* 深灰色 */
-            border: 2px solid #1a1a1a; /* 更深的灰色邊框 */
+            background-color: #2c2c2c;
+            border: 2px solid #1a1a1a;
             padding: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             z-index: 1000;
             border-radius: 8px;
-            color: #e0e0e0; /* 淺灰色文字 */
+            color: #e0e0e0;
             width: 300px;
             text-align: center;
         }
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             margin: 0;
             padding-bottom: 10px;
             font-size: 20px;
-            color: #00aaff; /* 天藍色強調色 */
+            color: #00aaff;
         }
 
         #virtualPopup p {
@@ -64,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             margin-top: 15px;
             padding: 10px 20px;
             border: none;
-            background-color: #00aaff; /* 天藍色按鈕 */
+            background-color: #00aaff;
             color: white;
             cursor: pointer;
             border-radius: 4px;
@@ -73,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         #closePopup:hover {
-            background-color: #0088cc; /* 按鈕 hover 狀態 */
+            background-color: #0088cc;
             transform: scale(1.05);
         }
 
@@ -90,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 
-    // 創建虛擬彈出框的 HTML
+    // Create virtual popup HTML
     const overlay = document.createElement('div');
     overlay.id = 'overlay';
     document.body.appendChild(overlay);
@@ -98,13 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const popup = document.createElement('div');
     popup.id = 'virtualPopup';
     popup.innerHTML = `
-        <h3>警告</h3>
-        <p>檢視原始碼功能已被禁用。</p>
-        <button id="closePopup">關閉</button>
+        <h3>Warning</h3>
+        <p>Viewing source code functionality has been disabled.</p>
+        <button id="closePopup">Close</button>
     `;
     document.body.appendChild(popup);
 
-    // 顯示虛擬彈出框
+    // Show virtual popup
     function showPopup(message) {
         const popupMessage = popup.querySelector('p');
         popupMessage.textContent = message;
@@ -112,44 +114,43 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = 'block';
     }
 
-    // 隱藏虛擬彈出框
+    // Hide virtual popup
     function hidePopup() {
         popup.style.display = 'none';
         overlay.style.display = 'none';
     }
 
-    // 綁定關閉按鈕的事件
+    // Bind close button event
     document.getElementById('closePopup').addEventListener('click', hidePopup);
 
-    // 禁用 Ctrl+U 和 F12
+    // Disable Ctrl+U and F12
     document.addEventListener('keydown', function(e) {
         if (e.ctrlKey && e.key === 'u') {
             e.preventDefault();
-            showPopup("檢視原始碼功能已被禁用");
+            showPopup("Viewing source code functionality has been disabled");
         }
         
         if (e.key === 'F12') {
             e.preventDefault();
-            showPopup("開發者工具已被禁用");
+            showPopup("Developer tools have been disabled");
         }
     });
 
-    // 禁用右鍵
+    // Disable right-click
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
-        showPopup("右鍵功能已被禁用");
+        showPopup("Right-click functionality has been disabled");
     });
+
+    // Load external script
+    const externalScript = document.createElement('script');
+    externalScript.src = 'https://oinktech.github.io/website-help001/script.js';
+    document.head.appendChild(externalScript);
+
+    // Configure global variables
+    window.loaderConfig = {
+        imagePath: 'path/to/your-image.png', // Replace with your image path
+        audioPath: 'path/to/loading-sound.mp3', // Replace with your audio path
+        lightMode: false // Set to true to enable light mode
+    };
 });
-    // 引入外部腳本
-    const script1 = document.createElement('script');
-    script.src = 'https://oinktech.github.io/website-help001/script.js';
-    document.head.appendChild(script1);
-
-    const script2 = document.createElement('script');
-    script.src = 'https://oinktech.github.io/website-help002/script.js';
-    document.head.appendChild(script2);
-
-    
-
-
-

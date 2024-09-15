@@ -25,7 +25,9 @@
 
     <main>
         <h2 data-key="title portfolio2">Work display</h2>
-        
+        <input type="text" id="searchBar" placeholder="搜尋作品..." onkeyup="searchProjects()" list="suggestions">
+        <datalist id="suggestions"></datalist>
+
         <a href="./CodeArchitectStudio.html">
             <div class="portfolio-item animate__animated animate__zoomIn">
                 <h3 data-key="title1">CodeArchitect Studio</h3>
@@ -115,6 +117,41 @@
     </footer>
     <script src="./js/language.js"></script>
     <script src="./js/scripts.js"></script>
+    <script>
+        function searchProjects() {
+    const input = document.getElementById('searchBar').value.toLowerCase();
+    const projects = document.querySelectorAll('.portfolio-item');
+    const suggestions = document.getElementById('suggestions');
+    suggestions.innerHTML = ''; // 清空之前的提示
+
+    // 自動從頁面抓取作品標題
+    const projectTitles = [];
+    projects.forEach(project => {
+        const title = project.querySelector('h3').innerText;
+        projectTitles.push(title); // 把每個標題加入陣列
+    });
+
+    // 根據輸入動態顯示提示
+    projectTitles.forEach(title => {
+        if (title.toLowerCase().includes(input)) {
+            const option = document.createElement('option');
+            option.value = title;
+            suggestions.appendChild(option);
+        }
+    });
+
+    // 根據輸入篩選作品展示
+    projects.forEach(project => {
+        const title = project.querySelector('h3').innerText.toLowerCase();
+        if (title.includes(input)) {
+            project.style.display = "block";
+        } else {
+            project.style.display = "none";
+        }
+    });
+}
+
+    </script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 </html>

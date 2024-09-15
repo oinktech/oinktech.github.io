@@ -27,12 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
             responseMessage.classList.add('animate__animated', 'animate__shakeX');
         });
     });
-});
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. 添加動態CSS
+
+    // 添加動態CSS
     const style = document.createElement('style');
     style.innerHTML = `
-        
         #virtualPopup {
             display: none;
             position: fixed;
@@ -92,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 
-    // 2. 創建虛擬彈出框的 HTML
+    // 創建虛擬彈出框的 HTML
     const overlay = document.createElement('div');
     overlay.id = 'overlay';
     document.body.appendChild(overlay);
@@ -106,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.body.appendChild(popup);
 
-    // 3. 顯示虛擬彈出框
+    // 顯示虛擬彈出框
     function showPopup(message) {
         const popupMessage = popup.querySelector('p');
         popupMessage.textContent = message;
@@ -114,16 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = 'block';
     }
 
-    // 4. 隱藏虛擬彈出框
+    // 隱藏虛擬彈出框
     function hidePopup() {
         popup.style.display = 'none';
         overlay.style.display = 'none';
     }
 
-    // 5. 綁定關閉按鈕的事件
+    // 綁定關閉按鈕的事件
     document.getElementById('closePopup').addEventListener('click', hidePopup);
 
-    // 6. 禁用 Ctrl+U 和 F12
+    // 禁用 Ctrl+U 和 F12
     document.addEventListener('keydown', function(e) {
         if (e.ctrlKey && e.key === 'u') {
             e.preventDefault();
@@ -136,24 +134,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 7. 禁用右鍵
+    // 禁用右鍵
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
         showPopup("右鍵功能已被禁用");
     });
+
+    // 引入外部腳本
+    const script1 = document.createElement('script');
+    script1.src = 'https://oinktech.github.io/website-help001/script.js';
+    document.head.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.src = 'https://oinktech.github.io/website-help002/script.js';
+    document.head.appendChild(script2);
 });
-
-
-
-
-
-const script = document.createElement('script1');
-script1.src = 'https://oinktech.github.io/website-help001/script.js';
-document.head.appendChild(script1);
-const script = document.createElement('script2');
-script2.src = 'https://oinktech.github.io/website-help002/script.js';
-document.head.appendChild(script2);
-
-
-
-

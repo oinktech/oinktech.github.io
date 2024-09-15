@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Configure global variables
     window.loaderConfig = {
-        imagePath: 'https://oinktech.github.io/images/favicon.ico'， // Replace with your image path
+        imagePath: 'https://oinktech.github.io/images/favicon.ico', // Replace with your image path
         audioPath: 'https://oinktech.github.io/music/14404.wav', // Replace with your audio path
         lightMode: false // Set to true to enable light mode
     };

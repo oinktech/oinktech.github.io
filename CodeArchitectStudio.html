@@ -12,6 +12,21 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+        .header-container {
+    display: flex;
+    align-items: center; /* 垂直对齐 */
+    justify-content: space-between; /* 水平分布 */
+}
+
+.header-container h2 {
+    margin: 0; /* 移除默认边距 */
+}
+
+.repo-badges {
+    display: flex;
+    gap: 10px; /* 图标之间的间距 */
+}
+
     </style>
     <script src="https://oinktech.github.io/Switch-between-light-and-dark-colors/theme-toggle-version1.js" defer></script>
    
@@ -34,16 +49,17 @@
     <main>
         <section class="portfolio">
             <div class="portfolio-item animate__animated animate__zoomIn">
-                <h2 data-key="portfolioTitle code">Code Architect Studio</h2>
-                <div class="repo-badges">
-        
-        <a href="https://github.com/oinktech/CodeArchitectStudio">
-            <img src="https://img.shields.io/github/stars/oinktech/CodeArchitectStudio?style=social" alt="GitHub stars">
-        </a>
-        <a href="https://github.com/oinktech/CodeArchitectStudio">
-            <img src="https://img.shields.io/github/forks/oinktech/CodeArchitectStudio?style=social" alt="GitHub forks">
-        </a>
-    </div>
+        <div class="header-container">
+            <h2 data-key="portfolioTitle code">Code Architect Studio</h2>
+            <div class="repo-badges">
+                <a href="https://github.com/oinktech/CodeArchitectStudio">
+                    <img src="https://img.shields.io/github/stars/oinktech/CodeArchitectStudio?style=social" alt="GitHub stars">
+                </a>
+                <a href="https://github.com/oinktech/CodeArchitectStudio">
+                    <img src="https://img.shields.io/github/forks/oinktech/CodeArchitectStudio?style=social" alt="GitHub forks">
+                </a>
+            </div>
+        </div>
     <p><a href="https://oinktech.github.io/CodeArchitectStudio/" data-key="visitLinkText code">Visit Code Architect Studio</a></p>
     
     <h3 data-key="overviewTitle">Overview</h3>

@@ -63,24 +63,23 @@
    <a href="https://example. com">123</a> 
     <!-- 頁腳 -->
     <footer>
-        <div class="footer-content">
-            <p>訪客統計：</p>
-            <!-- Default Statcounter code -->
-            <script type="text/javascript">
-                var sc_project=13034834;
-                var sc_invisible=0;
-                var sc_security="bd33db8e";
-                var scJsHost = "https://";
-                document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
-            </script>
-            <noscript>
-                <div class="statcounter">
-                    <a title="real time web analytics" href="https://statcounter.com/" target="_blank">
-                        <img class="statcounter" src="https://c.statcounter.com/13034834/0/bd33db8e/0/" alt="real time web analytics" referrerPolicy="no-referrer-when-downgrade">
-                    </a>
-                </div>
-            </noscript>
-        </div>
+        <script src="https://oinktech.github.io/website-tools-version/@1-0-0.js"></script>
+    <script>
+        // 配置並啟動優化工具
+        Optimization.setOptions({
+            version: '1.0.0',  // 指定要使用的版本
+            lazyLoadImages: true,
+            dynamicImport: false,
+            featureDetection: true,
+            errorReporting: true,
+            dynamicCSS: true,
+            performanceTracking: true,
+            resourceOptimization: true,
+            userBehaviorTracking: true
+        });
+
+        Optimization.start();
+    </script>
         <div class="footer-link>
             <a href="privacy.html">隱私政策</a>
         </div>

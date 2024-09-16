@@ -25,4 +25,25 @@
     };
     document.head.appendChild(script);
 })();
+document.addEventListener('DOMContentLoaded', function() {
+    const imageUrls = [
+        'https://via.placeholder.com/800x400?text=Image+1',
+        'https://via.placeholder.com/800x400?text=Image+2',
+        'https://via.placeholder.com/800x400?text=Image+3'
+    ];
+
+    const script = document.createElement('script');
+    script.src = 'https://oinktech.github.io/image-slider/@1-0-0script.js';
+    script.defer = true;
+    script.onload = function() {
+        if (window.initImageSlider) {
+            window.initImageSlider(imageUrls, {
+                slideSpeed: 0.5, // Slide speed in seconds
+                autoPlayInterval: 3000, // Auto-play interval in milliseconds
+                transitionEffect: 'fade' // Transition effect: 'slide', 'fade', 'zoom'
+            });
+        }
+    };
+    document.body.appendChild(script);
+});
 

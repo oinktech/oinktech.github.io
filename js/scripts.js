@@ -12,7 +12,7 @@
     homeButton.href = '#';
     homeButton.id = 'home-button';
     homeButton.title = '回到首頁';
-    homeButton.innerHTML = "<i class='bx bx-up-arrow-alt'></i><span>回到首頁</span>";
+    homeButton.innerHTML = "<i class='bx bx-up-arrow-alt'></i><span>回到首頁</span><div class='scroll-progress'></div>";
     document.body.appendChild(homeButton);
 
     const style = document.createElement('style');
@@ -27,7 +27,7 @@
             border-radius: 10px;
             font-size: 16px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, background 1s ease, box-shadow 0.3s ease, opacity 0.3s;
+            transition: transform 0.3s ease, background 1s ease, box-shadow 0.3s ease, opacity 0.3s, color 0.3s;
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -49,6 +49,23 @@
             transition: opacity 0.3s ease;
         }
 
+        #home-button .scroll-progress {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        #home-button .scroll-progress div {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            width: 0%;
+        }
+
         #home-button.show {
             opacity: 1;
             pointer-events: auto;
@@ -58,6 +75,11 @@
         #home-button:hover {
             background: linear-gradient(135deg, #00f2fe, #4facfe);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        #home-button:hover span {
+            content: '點擊返回頂部';
+            color: yellow;
         }
 
         #home-button:hover i {
@@ -108,20 +130,6 @@
             50% { background: #00f2fe; }
             100% { background: #4facfe; }
         }
-
-        /* 滾動進度條 */
-        #home-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.7);
-            z-index: -1;
-        }
     `;
     document.head.appendChild(style);
 
@@ -129,29 +137,28 @@
     window.addEventListener('scroll', function() {
         const scrollY = window.scrollY;
         const maxScroll = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollY / maxScroll) * 100;
 
         if (scrollY > 300) {
             homeButton.classList.add('show');
             const scale = 1 + (scrollY / maxScroll);
             homeButton.style.transform = `scale(${Math.min(scale, 1.5)})`;
+
+            // 根據滾動進度變化背景色
             homeButton.style.background = `linear-gradient(135deg, rgba(79,172,254,${1-scale/2}), rgba(0,242,254,${1-scale/2}))`;
 
-            // 滾動進度條
-            const progress = Math.min((scrollY / maxScroll) * 100, 100);
-            homeButton.style.setProperty('--progress', `${progress}%`);
+            // 滾動進度條更新
+            homeButton.querySelector('.scroll-progress div').style.width = `${scrollPercent}%`;
+
+            // 滾到底部時更換圖標
+            if (scrollY + window.innerHeight >= document.body.scrollHeight) {
+                homeButton.querySelector('i').className = 'bx bx-home';
+            } else {
+                homeButton.querySelector('i').className = 'bx bx-up-arrow-alt';
+            }
         } else {
             homeButton.classList.remove('show');
         }
-    });
-
-    // 自動隱藏按鈕
-    let scrollTimeout;
-    window.addEventListener('scroll', function() {
-        clearTimeout(scrollTimeout);
-        homeButton.style.opacity = '1';
-        scrollTimeout = setTimeout(() => {
-            homeButton.style.opacity = '0.7';
-        }, 2000); // 停滯2秒後自動淡出
     });
 
     // 平滑滾動至頂部
@@ -160,16 +167,21 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // 長按觸發語音提示功能
-    let pressTimer;
-    homeButton.addEventListener('mousedown', function() {
-        pressTimer = setTimeout(function() {
-            const msg = new SpeechSynthesisUtterance('點擊此按鈕回到首頁');
-            window.speechSynthesis.speak(msg);
-        }, 1000); // 長按1秒觸發語音提示
+    // 雙擊快速返回頂部
+    homeButton.addEventListener('dblclick', function(event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'instant' });
     });
 
-    homeButton.addEventListener('mouseup', function() {
-        clearTimeout(pressTimer);
+    // 單擊時播放音效
+    homeButton.addEventListener('click', function() {
+        const audio = new Audio('https://www.soundjay.com/button/sounds/button-29.mp3');
+        audio.play();
+    });
+
+    // 雙擊時播放不同音效
+    homeButton.addEventListener('dblclick', function() {
+        const audio = new Audio('https://www.soundjay.com/button/sounds/button-30.mp3');
+        audio.play();
     });
 })();

@@ -12,7 +12,7 @@
     homeButton.href = '#';
     homeButton.id = 'home-button';
     homeButton.title = '回到首頁';
-    homeButton.innerHTML = "<i class='bx bx-up-arrow-alt'></i><span>回到首頁</span><div class='progress-ring'></div>";
+    homeButton.innerHTML = "<i class='bx bx-up-arrow-alt'></i><span>回到首頁</span>";
     document.body.appendChild(homeButton);
 
     const style = document.createElement('style');
@@ -36,7 +36,7 @@
             pointer-events: none;
             z-index: 1000;
             text-decoration: none;
-            padding-right: 30px;
+            padding-right: 20px;
         }
 
         #home-button i {
@@ -46,23 +46,9 @@
         }
 
         #home-button span {
-            display: none;
             font-size: 12px;
             opacity: 1;
             transition: opacity 0.3s ease;
-        }
-
-        #home-button .progress-ring {
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.5);
-            box-sizing: border-box;
-            top: -5px;
-            left: -5px;
-            z-index: -1;
-            transition: border-color 0.3s ease;
         }
 
         #home-button.show {
@@ -119,18 +105,13 @@
     `;
     document.head.appendChild(style);
 
-    // 根據滾動深度動態調整按鈕大小與背景
+    // 根據滾動深度動態調整按鈕顯示與隱藏
     window.addEventListener('scroll', function() {
         const scrollY = window.scrollY;
-        const maxScroll = document.body.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollY / maxScroll) * 100;
 
         if (scrollY > 300) {
             homeButton.classList.add('show');
             homeButton.style.animation = 'fadeIn 0.5s ease-in-out forwards';
-
-            // 環繞按鈕的圓形進度條更新
-            homeButton.querySelector('.progress-ring').style.borderColor = `rgba(255, 255, 255, ${scrollPercent / 100})`;
 
             // 滾到底部時增加振動效果
             if (scrollY + window.innerHeight >= document.body.scrollHeight) {

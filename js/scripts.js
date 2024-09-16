@@ -19,16 +19,17 @@
     style.innerHTML = `
         #home-button {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            background: rgba(255, 255, 255, 0.2); /* 透明背景 */
             color: white;
             border-radius: 12px;
             font-size: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, background 1s ease, box-shadow 0.3s ease, opacity 0.3s, color 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s, color 0.3s;
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -41,17 +42,16 @@
         }
 
         #home-button i {
-            font-size: 24px;
-            margin-right: 8px;
+            font-size: 26px;
+            margin-bottom: 6px; /* 將箭頭放在文字上方 */
             transition: transform 0.3s ease;
         }
 
         #home-button span {
-            font-size: 14px;
-            display: inline-block;
+            font-size: 12px;
+            display: block;
             opacity: 1;
             transition: opacity 0.3s ease;
-            text-align: center;
         }
 
         #home-button.show {
@@ -60,12 +60,12 @@
         }
 
         #home-button:hover {
-            background: linear-gradient(135deg, #00f2fe, #4facfe);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.4); /* 懸浮時稍微增加背景透明度 */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         #home-button:hover i {
-            transform: rotate(360deg) scale(1.2);
+            transform: rotate(360deg) scale(1.2); /* 懸浮時的旋轉動畫 */
         }
 
         #home-button:active {
@@ -80,11 +80,11 @@
             }
 
             #home-button i {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             #home-button span {
-                font-size: 12px;
+                font-size: 10px;
             }
         }
 

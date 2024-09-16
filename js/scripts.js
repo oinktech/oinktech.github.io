@@ -24,7 +24,7 @@
             padding: 20px;
             background: linear-gradient(135deg, #4facfe, #00f2fe);
             color: white;
-            border-radius: 10px; /* 改為方形按鈕，圓角設置較小 */
+            border-radius: 10px;
             font-size: 16px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, background 1s ease, box-shadow 0.3s ease, opacity 0.3s;
@@ -45,7 +45,7 @@
         }
 
         #home-button span {
-            opacity: 1; /* 確保文字正確顯示 */
+            opacity: 1;
             transition: opacity 0.3s ease;
         }
 
@@ -62,6 +62,10 @@
 
         #home-button:hover i {
             transform: rotate(360deg) scale(1.2);
+        }
+
+        #home-button:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* 光暈效果 */
         }
 
         #home-button:active {
@@ -107,10 +111,16 @@
     `;
     document.head.appendChild(style);
 
-    // 滾動後顯示/隱藏按鈕
+    // 根據滾動深度動態調整按鈕大小與背景
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
+        const scrollY = window.scrollY;
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+        if (scrollY > 300) {
             homeButton.classList.add('show');
+            const scale = 1 + (scrollY / maxScroll);
+            homeButton.style.transform = `scale(${Math.min(scale, 1.5)})`;
+            homeButton.style.background = `linear-gradient(135deg, rgba(79,172,254,${1-scale/2}), rgba(0,242,254,${1-scale/2}))`;
         } else {
             homeButton.classList.remove('show');
         }
@@ -120,5 +130,11 @@
     homeButton.addEventListener('click', function(event) {
         event.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 雙擊快速返回頂部
+    homeButton.addEventListener('dblclick', function(event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'instant' });
     });
 })();

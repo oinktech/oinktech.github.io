@@ -108,6 +108,20 @@
             50% { background: #00f2fe; }
             100% { background: #4facfe; }
         }
+
+        /* 滾動進度條 */
+        #home-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.7);
+            z-index: -1;
+        }
     `;
     document.head.appendChild(style);
 
@@ -121,9 +135,23 @@
             const scale = 1 + (scrollY / maxScroll);
             homeButton.style.transform = `scale(${Math.min(scale, 1.5)})`;
             homeButton.style.background = `linear-gradient(135deg, rgba(79,172,254,${1-scale/2}), rgba(0,242,254,${1-scale/2}))`;
+
+            // 滾動進度條
+            const progress = Math.min((scrollY / maxScroll) * 100, 100);
+            homeButton.style.setProperty('--progress', `${progress}%`);
         } else {
             homeButton.classList.remove('show');
         }
+    });
+
+    // 自動隱藏按鈕
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        homeButton.style.opacity = '1';
+        scrollTimeout = setTimeout(() => {
+            homeButton.style.opacity = '0.7';
+        }, 2000); // 停滯2秒後自動淡出
     });
 
     // 平滑滾動至頂部
@@ -132,9 +160,16 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // 雙擊快速返回頂部
-    homeButton.addEventListener('dblclick', function(event) {
-        event.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'instant' });
+    // 長按觸發語音提示功能
+    let pressTimer;
+    homeButton.addEventListener('mousedown', function() {
+        pressTimer = setTimeout(function() {
+            const msg = new SpeechSynthesisUtterance('點擊此按鈕回到首頁');
+            window.speechSynthesis.speak(msg);
+        }, 1000); // 長按1秒觸發語音提示
+    });
+
+    homeButton.addEventListener('mouseup', function() {
+        clearTimeout(pressTimer);
     });
 })();

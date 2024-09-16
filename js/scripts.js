@@ -26,24 +26,44 @@
     document.head.appendChild(script);
 })();
 document.addEventListener('DOMContentLoaded', function() {
-    const imageUrls = [
-        'https://via.placeholder.com/800x400?text=Image+1',
-        'https://via.placeholder.com/800x400?text=Image+2',
-        'https://via.placeholder.com/800x400?text=Image+3'
+    const sliders = [
+        {
+            id: 'slider1',
+            imageUrls: [
+                'https://via.placeholder.com/800x400?text=Image+1',
+                'https://via.placeholder.com/800x400?text=Image+2',
+                'https://via.placeholder.com/800x400?text=Image+3'
+            ],
+            options: {
+                slideSpeed: 0.5,
+                autoPlayInterval: 3000,
+                transitionEffect: 'fade'
+            }
+        },
+        {
+            id: 'slider2',
+            imageUrls: [
+                'https://via.placeholder.com/800x400?text=Image+A',
+                'https://via.placeholder.com/800x400?text=Image+B',
+                'https://via.placeholder.com/800x400?text=Image+C'
+            ],
+            options: {
+                slideSpeed: 0.7,
+                autoPlayInterval: 4000,
+                transitionEffect: 'slide'
+            }
+        }
     ];
 
-    const script = document.createElement('script');
-    script.src = 'https://oinktech.github.io/image-slider/@1-0-0script.js';
-    script.defer = true;
-    script.onload = function() {
-        if (window.initImageSlider) {
-            window.initImageSlider(imageUrls, {
-                slideSpeed: 0.5, // Slide speed in seconds
-                autoPlayInterval: 3000, // Auto-play interval in milliseconds
-                transitionEffect: 'fade' // Transition effect: 'slide', 'fade', 'zoom'
-            });
-        }
-    };
-    document.body.appendChild(script);
+    sliders.forEach(slider => {
+        const script = document.createElement('script');
+        script.src = 'https://oinktech.github.io/image-slider/@1-0-0script.js';
+        script.defer = true;
+        script.onload = function() {
+            if (window.initImageSlider) {
+                window.initImageSlider(slider.id, slider.imageUrls, slider.options);
+            }
+        };
+        document.body.appendChild(script);
+    });
 });
-

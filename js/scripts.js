@@ -12,6 +12,7 @@
         bottom: '20px',
         right: '20px',
         iconSize: '20px',
+        textColor: '#00BFFF',
         textSize: '10px',
         transition: '0.2s ease'
     };

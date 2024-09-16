@@ -21,12 +21,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 15px;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b); /* 橙色到粉色的漸變 */
+            padding: 20px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
             color: white;
-            border-radius: 50px;
-            font-size: 18px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px; /* 改為方形按鈕，圓角設置較小 */
+            font-size: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, background 1s ease, box-shadow 0.3s ease, opacity 0.3s;
             position: fixed;
             bottom: 30px;
@@ -35,36 +35,33 @@
             pointer-events: none;
             z-index: 1000;
             text-decoration: none;
-            padding-right: 20px;
+            padding-right: 30px;
         }
 
         #home-button i {
-            font-size: 24px;
+            font-size: 22px;
             margin-right: 8px;
             transition: transform 0.3s ease;
         }
 
         #home-button span {
-            opacity: 0;
+            opacity: 1; /* 確保文字正確顯示 */
             transition: opacity 0.3s ease;
         }
 
         #home-button.show {
             opacity: 1;
             pointer-events: auto;
+            animation: flashBackground 3s infinite alternate;
         }
 
         #home-button:hover {
-            background: linear-gradient(135deg, #feb47b, #ff7e5f);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        #home-button:hover span {
-            opacity: 1;
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         #home-button:hover i {
-            transform: scale(1.1);
+            transform: rotate(360deg) scale(1.2);
         }
 
         #home-button:active {
@@ -79,24 +76,33 @@
             }
 
             #home-button i {
-                font-size: 20px;
-            }
-
-            #home-button span {
-                display: none;
+                font-size: 18px;
             }
         }
 
-        /* 按鈕背景漸變動畫 */
-        @keyframes background-change {
-            0% { background: #ff7e5f; }
-            50% { background: #feb47b; }
-            100% { background: #ff7e5f; }
+        /* 彈跳進場動畫 */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            80% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
-        /* 當按鈕出現時添加背景漸變效果 */
-        #home-button.show {
-            animation: background-change 3s infinite alternate;
+        /* 背景閃爍動畫 */
+        @keyframes flashBackground {
+            0% { background: #4facfe; }
+            50% { background: #00f2fe; }
+            100% { background: #4facfe; }
         }
     `;
     document.head.appendChild(style);

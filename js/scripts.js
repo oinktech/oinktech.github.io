@@ -1,122 +1,27 @@
-// 動態加載 Boxicons 圖標庫
-(function loadBoxicons() {
-    const link = document.createElement('link');
-    link.href = 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
+<script>
+(function() {
+    // 這裡是配置參數
+    const buttonConfig = {
+        width: '70px',
+        height: '70px',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        hoverBackgroundColor: 'rgba(0, 0, 0, 0.5)',
+        borderRadius: '8px',
+        fontSize: '14px',
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+        bottom: '20px',
+        right: '20px',
+        iconSize: '20px',
+        textSize: '10px',
+        transition: '0.2s ease'
+    };
+
+    // 引入按鈕創建腳本並傳遞配置參數
+    const script = document.createElement('script');
+    script.src = 'https://oinktech.github.io/BACKTOHOMEBUTTON/@1-0-0script.js'; // 確保這裡的路徑是正確的
+    script.onload = function() {
+        createHomeButton(buttonConfig);
+    };
+    document.head.appendChild(script);
 })();
-
-// 創建回到首頁按鈕
-(function createHomeButton() {
-    const homeButton = document.createElement('a');
-    homeButton.href = '#';
-    homeButton.id = 'home-button';
-    homeButton.title = 'Back to Home';
-    homeButton.innerHTML = "<i class='bx bx-up-arrow-alt'></i><span>Back to Home</span>";
-    document.body.appendChild(homeButton);
-
-    const style = document.createElement('style');
-    style.innerHTML = `
-        #home-button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.2); /* 透明背景 */
-            color: white;
-            border-radius: 12px;
-            font-size: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s, color 0.3s;
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 1000;
-            text-decoration: none;
-            padding: 10px;
-            text-align: center;
-        }
-
-        #home-button i {
-            font-size: 26px;
-            margin-bottom: 6px; /* 將箭頭放在文字上方 */
-            transition: transform 0.3s ease;
-        }
-
-        #home-button span {
-            font-size: 12px;
-            display: block;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
-
-        #home-button.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        #home-button:hover {
-            background: rgba(255, 255, 255, 0.4); /* 懸浮時稍微增加背景透明度 */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        #home-button:hover i {
-            transform: rotate(360deg) scale(1.2); /* 懸浮時的旋轉動畫 */
-        }
-
-        #home-button:active {
-            transform: scale(0.95);
-        }
-
-        @media (max-width: 768px) {
-            #home-button {
-                font-size: 14px;
-                right: 20px;
-                bottom: 20px;
-            }
-
-            #home-button i {
-                font-size: 22px;
-            }
-
-            #home-button span {
-                font-size: 10px;
-            }
-        }
-
-        /* 淡入淡出動畫 */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-    `;
-    document.head.appendChild(style);
-
-    // 根據滾動深度動態調整按鈕顯示與隱藏
-    window.addEventListener('scroll', function() {
-        const scrollY = window.scrollY;
-
-        if (scrollY > 300) {
-            homeButton.classList.add('show');
-            homeButton.style.animation = 'fadeIn 0.5s ease-in-out forwards';
-        } else {
-            homeButton.classList.remove('show');
-            homeButton.style.animation = 'fadeOut 0.5s ease-in-out forwards';
-        }
-    });
-
-    // 平滑滾動至頂部
-    homeButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-})();
+</script>

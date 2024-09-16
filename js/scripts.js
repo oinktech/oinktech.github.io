@@ -11,8 +11,8 @@
     const homeButton = document.createElement('a');
     homeButton.href = '#';
     homeButton.id = 'home-button';
-    homeButton.title = '回到首頁';
-    homeButton.innerHTML = "<i class='bx bx-up-arrow-alt'></i><span>回到首頁</span>";
+    homeButton.title = 'Back to Home';
+    homeButton.innerHTML = "<i class='bx bx-up-arrow-alt'></i><span>Back to Home</span>";
     document.body.appendChild(homeButton);
 
     const style = document.createElement('style');
@@ -21,11 +21,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #4facfe, #00f2fe);
             color: white;
-            border-radius: 15px;
+            border-radius: 12px;
             font-size: 16px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, background 1s ease, box-shadow 0.3s ease, opacity 0.3s, color 0.3s;
@@ -36,19 +36,22 @@
             pointer-events: none;
             z-index: 1000;
             text-decoration: none;
-            padding-right: 20px;
+            padding: 10px;
+            text-align: center;
         }
 
         #home-button i {
-            font-size: 22px;
+            font-size: 24px;
             margin-right: 8px;
             transition: transform 0.3s ease;
         }
 
         #home-button span {
-            font-size: 12px;
+            font-size: 14px;
+            display: inline-block;
             opacity: 1;
             transition: opacity 0.3s ease;
+            text-align: center;
         }
 
         #home-button.show {
@@ -65,10 +68,6 @@
             transform: rotate(360deg) scale(1.2);
         }
 
-        #home-button:hover {
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* 光暈效果 */
-        }
-
         #home-button:active {
             transform: scale(0.95);
         }
@@ -81,7 +80,11 @@
             }
 
             #home-button i {
-                font-size: 18px;
+                font-size: 20px;
+            }
+
+            #home-button span {
+                font-size: 12px;
             }
         }
 
@@ -95,13 +98,6 @@
             0% { opacity: 1; }
             100% { opacity: 0; }
         }
-
-        /* 背景漸變動畫 */
-        @keyframes backgroundChange {
-            0% { background: #4facfe; }
-            50% { background: #00f2fe; }
-            100% { background: #4facfe; }
-        }
     `;
     document.head.appendChild(style);
 
@@ -112,11 +108,6 @@
         if (scrollY > 300) {
             homeButton.classList.add('show');
             homeButton.style.animation = 'fadeIn 0.5s ease-in-out forwards';
-
-            // 滾到底部時增加振動效果
-            if (scrollY + window.innerHeight >= document.body.scrollHeight) {
-                homeButton.style.animation = 'shake 0.5s';
-            }
         } else {
             homeButton.classList.remove('show');
             homeButton.style.animation = 'fadeOut 0.5s ease-in-out forwards';
@@ -127,19 +118,5 @@
     homeButton.addEventListener('click', function(event) {
         event.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // 懸停顯示文字
-    homeButton.addEventListener('mouseover', function() {
-        homeButton.querySelector('span').style.display = 'inline';
-    });
-
-    homeButton.addEventListener('mouseout', function() {
-        homeButton.querySelector('span').style.display = 'none';
-    });
-
-    // 添加振動效果
-    homeButton.addEventListener('animationend', function() {
-        homeButton.style.animation = '';
     });
 })();

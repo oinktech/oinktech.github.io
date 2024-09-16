@@ -12,7 +12,7 @@
     homeButton.href = '#';
     homeButton.id = 'home-button';
     homeButton.title = '回到首頁';
-    homeButton.innerHTML = "<i class='bx bx-up-arrow-alt'></i><span>回到首頁</span><div class='scroll-progress'></div>";
+    homeButton.innerHTML = "<i class='bx bx-up-arrow-alt'></i><span>回到首頁</span><div class='progress-ring'></div>";
     document.body.appendChild(homeButton);
 
     const style = document.createElement('style');
@@ -21,10 +21,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, #4facfe, #00f2fe);
             color: white;
-            border-radius: 10px;
+            border-radius: 15px;
             font-size: 16px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, background 1s ease, box-shadow 0.3s ease, opacity 0.3s, color 0.3s;
@@ -45,41 +46,33 @@
         }
 
         #home-button span {
+            display: none;
+            font-size: 12px;
             opacity: 1;
             transition: opacity 0.3s ease;
         }
 
-        #home-button .scroll-progress {
+        #home-button .progress-ring {
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        #home-button .scroll-progress div {
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            width: 0%;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.5);
+            box-sizing: border-box;
+            top: -5px;
+            left: -5px;
+            z-index: -1;
+            transition: border-color 0.3s ease;
         }
 
         #home-button.show {
             opacity: 1;
             pointer-events: auto;
-            animation: flashBackground 3s infinite alternate;
         }
 
         #home-button:hover {
             background: linear-gradient(135deg, #00f2fe, #4facfe);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        #home-button:hover span {
-            content: '點擊返回頂部';
-            color: yellow;
         }
 
         #home-button:hover i {
@@ -106,26 +99,19 @@
             }
         }
 
-        /* 彈跳進場動畫 */
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            60% {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-            80% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1);
-            }
+        /* 淡入淡出動畫 */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
-        /* 背景閃爍動畫 */
-        @keyframes flashBackground {
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* 背景漸變動畫 */
+        @keyframes backgroundChange {
             0% { background: #4facfe; }
             50% { background: #00f2fe; }
             100% { background: #4facfe; }
@@ -141,23 +127,18 @@
 
         if (scrollY > 300) {
             homeButton.classList.add('show');
-            const scale = 1 + (scrollY / maxScroll);
-            homeButton.style.transform = `scale(${Math.min(scale, 1.5)})`;
+            homeButton.style.animation = 'fadeIn 0.5s ease-in-out forwards';
 
-            // 根據滾動進度變化背景色
-            homeButton.style.background = `linear-gradient(135deg, rgba(79,172,254,${1-scale/2}), rgba(0,242,254,${1-scale/2}))`;
+            // 環繞按鈕的圓形進度條更新
+            homeButton.querySelector('.progress-ring').style.borderColor = `rgba(255, 255, 255, ${scrollPercent / 100})`;
 
-            // 滾動進度條更新
-            homeButton.querySelector('.scroll-progress div').style.width = `${scrollPercent}%`;
-
-            // 滾到底部時更換圖標
+            // 滾到底部時增加振動效果
             if (scrollY + window.innerHeight >= document.body.scrollHeight) {
-                homeButton.querySelector('i').className = 'bx bx-home';
-            } else {
-                homeButton.querySelector('i').className = 'bx bx-up-arrow-alt';
+                homeButton.style.animation = 'shake 0.5s';
             }
         } else {
             homeButton.classList.remove('show');
+            homeButton.style.animation = 'fadeOut 0.5s ease-in-out forwards';
         }
     });
 
@@ -167,21 +148,17 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // 雙擊快速返回頂部
-    homeButton.addEventListener('dblclick', function(event) {
-        event.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'instant' });
+    // 懸停顯示文字
+    homeButton.addEventListener('mouseover', function() {
+        homeButton.querySelector('span').style.display = 'inline';
     });
 
-    // 單擊時播放音效
-    homeButton.addEventListener('click', function() {
-        const audio = new Audio('https://www.soundjay.com/button/sounds/button-29.mp3');
-        audio.play();
+    homeButton.addEventListener('mouseout', function() {
+        homeButton.querySelector('span').style.display = 'none';
     });
 
-    // 雙擊時播放不同音效
-    homeButton.addEventListener('dblclick', function() {
-        const audio = new Audio('https://www.soundjay.com/button/sounds/button-30.mp3');
-        audio.play();
+    // 添加振動效果
+    homeButton.addEventListener('animationend', function() {
+        homeButton.style.animation = '';
     });
 })();

@@ -1,4 +1,4 @@
-<script>
+
 (function() {
     // 這裡是配置參數
     const buttonConfig = {
@@ -24,4 +24,4 @@
     };
     document.head.appendChild(script);
 })();
-</script>
+

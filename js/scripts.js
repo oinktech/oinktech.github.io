@@ -67,3 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(script);
     });
 });
+const script = document.createElement('script');
+ script.src = 'https://oinktech.github.io/LinkAware/@1.0.0/script.js';
+ document.head.appendChild(script);

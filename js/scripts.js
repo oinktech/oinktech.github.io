@@ -1,4 +1,3 @@
-
 (function() {
     // 這裡是配置參數
     const buttonConfig = {
@@ -18,55 +17,15 @@
     };
 
     // 引入按鈕創建腳本並傳遞配置參數
-    const script = document.createElement('script');
-    script.src = 'https://oinktech.github.io/BACKTOHOMEBUTTON/@1-0-0script.js'; // 確保這裡的路徑是正確的
-    script.onload = function() {
+    const buttonScript = document.createElement('script');
+    buttonScript.src = 'https://oinktech.github.io/BACKTOHOMEBUTTON/@1-0-0script.js'; // 確保這裡的路徑是正確的
+    buttonScript.onload = function() {
         createHomeButton(buttonConfig);
     };
-    document.head.appendChild(script);
-})();
-document.addEventListener('DOMContentLoaded', function() {
-    const sliders = [
-        {
-            id: 'slider1',
-            imageUrls: [
-                'https://via.placeholder.com/800x400?text=Image+1',
-                'https://via.placeholder.com/800x400?text=Image+2',
-                'https://via.placeholder.com/800x400?text=Image+3'
-            ],
-            options: {
-                slideSpeed: 0.5,
-                autoPlayInterval: 3000,
-                transitionEffect: 'fade'
-            }
-        },
-        {
-            id: 'slider2',
-            imageUrls: [
-                'https://via.placeholder.com/800x400?text=Image+A',
-                'https://via.placeholder.com/800x400?text=Image+B',
-                'https://via.placeholder.com/800x400?text=Image+C'
-            ],
-            options: {
-                slideSpeed: 0.7,
-                autoPlayInterval: 4000,
-                transitionEffect: 'slide'
-            }
-        }
-    ];
+    document.head.appendChild(buttonScript);
 
-    sliders.forEach(slider => {
-        const script = document.createElement('script');
-        script.src = 'https://oinktech.github.io/image-slider/@1-0-0script.js';
-        script.defer = true;
-        script.onload = function() {
-            if (window.initImageSlider) {
-                window.initImageSlider(slider.id, slider.imageUrls, slider.options);
-            }
-        };
-        document.body.appendChild(script);
-    });
-});
-const script = document.createElement('script');
- script.src = 'https://oinktech.github.io/LinkAware/@1.0.0/script.js';
- document.head.appendChild(script);
+    // 引入鏈接監聽腳本
+    const linkAwareScript = document.createElement('script');
+    linkAwareScript.src = 'https://oinktech.github.io/LinkAware/@1.0.0/script.js';
+    document.head.appendChild(linkAwareScript);
+})();

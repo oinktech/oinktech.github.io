@@ -18,7 +18,7 @@
 
     // 引入按鈕創建腳本並傳遞配置參數
     const buttonScript = document.createElement('script');
-    buttonScript.src = 'https://oinktech.github.io/BACKTOHOMEBUTTON/@1-0-0script.js'; // 確保這裡的路徑是正確的
+    buttonScript.src = 'https://oinktech.github.io/BACKTOHOMEBUTTON/@1-0-0/script.js'; // 確保這裡的路徑是正確的
     buttonScript.onload = function() {
         createHomeButton(buttonConfig);
     };
@@ -26,19 +26,20 @@
 
     // 引入鏈接監聽腳本
     function loadScript(url) {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = url;
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error('Script load error'));
-        document.head.appendChild(script);
-    });
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = url;
+            script.onload = () => resolve();
+            script.onerror = () => reject(new Error('Script load error'));
+            document.head.appendChild(script);
+        });
+    }
 
-loadScript('https://oinktech.github.io/LinkAware/@1.0.0/script.js')
-    .then(() => {
-        console.log('Script loaded successfully');
-    })
-    .catch(error => {
-        console.error(error);
-    });
+    loadScript('https://oinktech.github.io/LinkAware/@1.0.0/script.js')
+        .then(() => {
+            console.log('Script loaded successfully');
+        })
+        .catch(error => {
+            console.error(error);
+        });
 })();

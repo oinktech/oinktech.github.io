@@ -25,7 +25,20 @@
     document.head.appendChild(buttonScript);
 
     // 引入鏈接監聽腳本
-    const linkAwareScript = document.createElement('script');
-    linkAwareScript.src = 'https://oinktech.github.io/LinkAware/@1.0.0/script.js';
-    document.head.appendChild(linkAwareScript);
+    function loadScript(url) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error('Script load error'));
+        document.head.appendChild(script);
+    });
+
+loadScript('https://oinktech.github.io/LinkAware/@1.0.0/script.js')
+    .then(() => {
+        console.log('Script loaded successfully');
+    })
+    .catch(error => {
+        console.error(error);
+    });
 })();

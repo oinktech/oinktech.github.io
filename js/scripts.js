@@ -146,7 +146,7 @@ const styles = `
             opacity: 1;
         }
     }
-    .modal {
+    .modal-001 {
         display: none;
         position: fixed;
         z-index: 1000;
@@ -160,14 +160,14 @@ const styles = `
         width: 450px;
         max-width: 90%;
     }
-    .modal-header {
+    .modal-001-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin: 0;
         color: #4CAF50;
     }
-    .close-modal {
+    .close-modal-001 {
         cursor: pointer;
         font-size: 20px;
     }
@@ -195,10 +195,10 @@ document.head.appendChild(styleSheet);
 
 // 模態框和浮動圖標
 const chatHTML = `
-    <div class="modal" id="chat-modal">
-        <div class="modal-header">
+    <div class="modal-001" id="chat-modal">
+        <div class="modal-001-header">
             <h2>Chat with AI</h2>
-            <span class="close-modal" id="close-modal">&times;</span>
+            <span class="close-modal-001" id="close-modal-001">&times;</span>
         </div>
         <div class="chat-container">
             <div id="chat-box"></div>
@@ -216,9 +216,9 @@ const chatHTML = `
 document.body.innerHTML += chatHTML;
 
 // 模態框控制
-const chatModal = document.getElementById('chat-modal');
+const chatModal = document.getElementById('chat-modal-001');
 const chatIcon = document.getElementById('chat-icon');
-const closeModal = document.getElementById('close-modal');
+const closeModal = document.getElementById('close-modal-001');
 
 chatIcon.onclick = () => {
     chatModal.style.display = 'block';

@@ -48,15 +48,7 @@ const sessionId = 'session_' + Math.random().toString(36).substring(2, 15);
 
 // 添加 CSS 樣式
 const styles = `
-    body {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        background-color: #f5f9f5;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
+    
     .chat-container {
         background-color: #ffffff;
         border-radius: 15px;
@@ -68,13 +60,7 @@ const styles = `
         flex-direction: column;
         transition: all 0.3s ease;
     }
-    h1 {
-        text-align: center;
-        color: #4CAF50;
-        font-size: 2em;
-        margin-bottom: 20px;
-        animation: slideIn 0.5s;
-    }
+    
     @keyframes slideIn {
         from {
             transform: translateY(-20px);

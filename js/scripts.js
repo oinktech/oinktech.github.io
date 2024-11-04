@@ -195,6 +195,7 @@ document.head.appendChild(styleSheet);
 
 // 模態框和浮動圖標
 const chatHTML = `
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMOi8QO1cK5+4WDXx5G2jX2hv1fFxWmVsb/vTk" crossorigin="anonymous">
     <div class="modal-001" id="chat-modal">
         <div class="modal-001-header">
             <h2>Chat with AI</h2>

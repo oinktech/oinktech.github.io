@@ -1,5 +1,5 @@
 (function() {
-    // 這裡是配置參數
+    // 配置參數
     const buttonConfig = {
         width: '70px',
         height: '70px',
@@ -18,10 +18,8 @@
 
     // 引入按鈕創建腳本並傳遞配置參數
     const buttonScript = document.createElement('script');
-    buttonScript.src = 'https://oinktech.github.io/BACKTOHOMEBUTTON/@1-0-0/script.js'; // 確保這裡的路徑是正確的
-    buttonScript.onload = function() {
-        createHomeButton(buttonConfig);
-    };
+    buttonScript.src = 'https://oinktech.github.io/BACKTOHOMEBUTTON/@1-0-0/script.js';
+    buttonScript.onload = () => createHomeButton(buttonConfig);
     document.head.appendChild(buttonScript);
 
     // 引入鏈接監聽腳本
@@ -29,26 +27,22 @@
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
             script.src = url;
-            script.onload = () => resolve();
+            script.onload = resolve;
             script.onerror = () => reject(new Error('Script load error'));
             document.head.appendChild(script);
         });
     }
 
     loadScript('https://oinktech.github.io/LinkAware/@1.0.0/script.js')
-        .then(() => {
-            console.log('Script loaded successfully');
-        })
-        .catch(error => {
-            console.error(error);
-        });
+        .then(() => console.log('Script loaded successfully'))
+        .catch(error => console.error(error));
 })();
-// 在頁面加載時生成 session ID
+
+// 生成 session ID
 const sessionId = 'session_' + Math.random().toString(36).substring(2, 15);
 
 // 添加 CSS 樣式
 const styles = `
-    
     .chat-container {
         background-color: #ffffff;
         border-radius: 15px;
@@ -71,6 +65,7 @@ const styles = `
             opacity: 1;
         }
     }
+
     #chat-box {
         border: 1px solid #ddd;
         padding: 15px;
@@ -82,26 +77,31 @@ const styles = `
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s;
     }
+
     .user-message, .liya-message {
         margin: 10px 0;
         padding: 10px;
         border-radius: 10px;
         animation: fadeIn 0.5s;
     }
+
     .user-message {
         background-color: #e0f7da;
         text-align: right;
         color: #333;
     }
+
     .liya-message {
         background-color: #ffe0e6;
         text-align: left;
         color: #333;
     }
+
     .input-container {
         display: flex;
         align-items: center;
     }
+
     #user-input {
         flex: 1;
         padding: 12px;
@@ -110,10 +110,12 @@ const styles = `
         margin-right: 10px;
         transition: border-color 0.3s;
     }
+
     #user-input:focus {
         border-color: #4CAF50;
         outline: none;
     }
+
     #send-btn {
         padding: 12px;
         border: none;
@@ -125,19 +127,23 @@ const styles = `
         margin-left: 5px;
         transition: background-color 0.3s, transform 0.3s;
     }
+
     #send-btn:hover {
         background-color: #45a049;
         transform: scale(1.05);
     }
+
     .error-message {
         color: red;
         font-size: 0.85em;
         text-align: center;
         margin-top: 5px;
     }
+
     .fade-in {
         animation: fadeIn 0.5s;
     }
+
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -146,6 +152,7 @@ const styles = `
             opacity: 1;
         }
     }
+
     .modal-001 {
         display: none;
         position: fixed;
@@ -160,6 +167,7 @@ const styles = `
         width: 450px;
         max-width: 90%;
     }
+
     .modal-001-header {
         display: flex;
         justify-content: space-between;
@@ -167,10 +175,12 @@ const styles = `
         margin: 0;
         color: #4CAF50;
     }
+
     .close-modal-001 {
         cursor: pointer;
         font-size: 20px;
     }
+
     .floating-icon {
         position: fixed;
         bottom: 20px;
@@ -183,6 +193,7 @@ const styles = `
         cursor: pointer;
         z-index: 1000;
     }
+
     .floating-icon:hover {
         background-color: #45a049;
     }
@@ -217,17 +228,12 @@ const chatHTML = `
 document.body.innerHTML += chatHTML;
 
 // 模態框控制
-const chatModal = document.getElementById('chat-modal-001');
+const chatModal = document.getElementById('chat-modal');
 const chatIcon = document.getElementById('chat-icon');
 const closeModal = document.getElementById('close-modal-001');
 
-chatIcon.onclick = () => {
-    chatModal.style.display = 'block';
-};
-
-closeModal.onclick = () => {
-    chatModal.style.display = 'none';
-};
+chatIcon.onclick = () => { chatModal.style.display = 'block'; };
+closeModal.onclick = () => { chatModal.style.display = 'none'; };
 
 window.onclick = (event) => {
     if (event.target === chatModal) {
@@ -272,50 +278,36 @@ function sendMessage() {
         return response.json();
     })
     .then(data => {
-        removeLoadingMessage();
-        typeLiyaResponse(data.response);
+        appendMessage("liya", data.response);
     })
     .catch(error => {
         errorMsg.textContent = error.message;
-        logError(userInput, error.message);
+        removeLoadingMessage();
     });
+}
+
+function appendMessage(sender, message) {
+    const chatBox = document.getElementById("chat-box");
+    const messageElement = document.createElement("div");
+    messageElement.classList.add(sender === "user" ? "user-message" : "liya-message");
+    messageElement.textContent = message;
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight; // 滾動到最底部
 }
 
 function displayLoadingMessage() {
     const chatBox = document.getElementById("chat-box");
-    const loadingMessage = document.createElement("div");
-    loadingMessage.id = "loading-message";
-    loadingMessage.innerHTML = "<strong>正在生成中</strong><div class='loading-dots'></div><div class='loading-dots'></div><div class='loading-dots'></div>";
-    chatBox.appendChild(loadingMessage);
-    chatBox.scrollTop = chatBox.scrollHeight;
+    const loadingElement = document.createElement("div");
+    loadingElement.classList.add("liya-message");
+    loadingElement.textContent = "正在生成回應...";
+    chatBox.appendChild(loadingElement);
+    chatBox.scrollTop = chatBox.scrollHeight; // 滾動到最底部
 }
 
 function removeLoadingMessage() {
-    const loadingMessage = document.getElementById("loading-message");
+    const chatBox = document.getElementById("chat-box");
+    const loadingMessage = chatBox.querySelector(".liya-message:last-child");
     if (loadingMessage) {
         loadingMessage.remove();
     }
-}
-
-function typeLiyaResponse(response) {
-    const chatBox = document.getElementById("chat-box");
-    const liyaMessage = document.createElement("div");
-    liyaMessage.classList.add("liya-message", "fade-in");
-    liyaMessage.innerHTML = `<strong>AI:</strong> ${response}`;
-    chatBox.appendChild(liyaMessage);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function appendMessage(role, message) {
-    const chatBox = document.getElementById("chat-box");
-    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    const userMessage = document.createElement("div");
-    userMessage.classList.add("user-message", "fade-in");
-    userMessage.innerHTML = `<strong>${timestamp} - 你:</strong> ${message}`;
-    chatBox.appendChild(userMessage);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function logError(userInput, error) {
-    console.error(`User Input: ${userInput}, Error: ${error}`);
 }
